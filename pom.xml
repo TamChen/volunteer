@@ -5,7 +5,7 @@
   <artifactId>volunteer</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>sshe Maven Webapp</name>
+  <name>volunteer</name>
   <url>http://maven.apache.org</url>
   
   <properties>
