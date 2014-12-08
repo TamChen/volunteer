@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+.dialog-button {
+	text-align: center;
+}
+
+.dialog-button .l-btn {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.submit_tab {
+	margin: auto;
+}
+
+.submit_tab tr th {
+	text-align: right;
+	float: right;
+}
