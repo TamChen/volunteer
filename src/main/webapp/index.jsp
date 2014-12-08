@@ -35,7 +35,7 @@
 	<div data-options="region:'east',title:'East',split:true"
 		style="width: 100px;"></div>
 	<jsp:include page="layout/center.jsp"></jsp:include>
-	
+	<!-- 我是测试怎么进行团队开发的 -->
 	<!-- 登录页面 -->
 	<jsp:include page="user/login.jsp"></jsp:include>
 	<jsp:include page="user/regist.jsp"></jsp:include>
