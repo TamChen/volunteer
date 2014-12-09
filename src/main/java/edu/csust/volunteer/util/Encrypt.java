@@ -11,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
  * 
  * sha加密出来的长度是40位
  * 
+ * 
  */
 public class Encrypt {
 
