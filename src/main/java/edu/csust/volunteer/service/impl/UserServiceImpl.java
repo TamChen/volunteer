@@ -51,25 +51,25 @@ public class UserServiceImpl implements UserService {
 		String hql = "from User where username = :username and password = :password";
 		// Object[] params = {user.getUsername(), user.getPassword()};
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("username", user.getUsername());
-		params.put("password", user.getPassword());
+//		params.put("username", user.getUsername());
+//		params.put("password", user.getPassword());
 		return userDao.load(hql, params);
 	}
 
 	private String initOrder(UserVO user, String hql) {
-		String sort = user.getSort();
-		String order = user.getOrder();
-		if (user.getSort() != null) {
-			if (order == null) {
-				order = "asc";
-			}
-			hql += " order by " + sort + " " + order;
-		}
+//		String sort = user.getSort();
+//		String order = user.getOrder();
+//		if (user.getSort() != null) {
+//			if (order == null) {
+//				order = "asc";
+//			}
+//			hql += " order by " + sort + " " + order;
+//		}
 		return hql;
 	}
 
 	private String initWhere(UserVO user, String hql, Map<String, Object> params) {
-		String username = user.getUsername();
+		String username = user.getUserName();
 		if (StringUtils.isNotBlank(username)) {
 			hql += " where u.username like :username";
 			params.put("username", "%" + username.trim() + "%");

@@ -13,7 +13,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	public boolean isUsernameExists(UserVO user) {
 		Long count = (Long) getSession()
 				.createQuery("select count(id) from User where username = ?")
-				.setParameter(0, user.getUsername()).uniqueResult();
+				.setParameter(0, user.getUserName()).uniqueResult();
 		if (count != null && count > 0) { // 用户名已经存在
 			return true;
 		} else {
