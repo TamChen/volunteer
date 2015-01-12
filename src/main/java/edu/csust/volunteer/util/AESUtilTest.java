@@ -69,9 +69,10 @@ public class AESUtilTest {
 	public static void main(String[] args) throws Exception {
 		Date now = new Date();
 		System.out.println(now.toLocaleString());
-
-		String inviteCode = AESUtilTest.encryptInviteCode(System
-				.currentTimeMillis() + "_1");
+//
+//		String inviteCode = AESUtilTest.encryptInviteCode(System
+//				.currentTimeMillis() + "_1");
+		String inviteCode = AESUtilTest.encryptInviteCode("helloworld" + "_1");
 		System.out.println("inviteCode  " + inviteCode);
 
 		String des = AESUtilTest.decryptInviteCode(inviteCode);

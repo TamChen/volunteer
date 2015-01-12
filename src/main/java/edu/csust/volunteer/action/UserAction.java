@@ -10,6 +10,8 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -19,7 +21,8 @@ import edu.csust.volunteer.service.UserService;
 import edu.csust.volunteer.util.Encrypt;
 import edu.csust.volunteer.vo.UserVO;
 
-@Action(value = "userAction")
+@Results( { @Result(name = "success", location = "/main.jsp"), 
+@Result(name = "error", location = "/error.jsp") }) 
 public class UserAction extends BaseAction implements ModelDriven<UserVO> {
 
 	private static final Logger LOGGER = Logger.getLogger(UserAction.class);
@@ -41,14 +44,14 @@ public class UserAction extends BaseAction implements ModelDriven<UserVO> {
 		this.userService = userService;
 	}
 
-	public void test() {
-		LOGGER.info("进入useraction");
-	}
+//	public void test() {
+//		LOGGER.info("进入useraction");
+//	}
 
 	public void regist() {
 		DataObject dataObject = new DataObject();
 		if (user != null) {
-			if (StringUtils.isBlank(user.getUsername())) {
+			if (StringUtils.isBlank(user.getUserName())) {
 				dataObject.setMsg("用户名不能为空！");
 				writeJson(dataObject);
 				return;
@@ -61,9 +64,9 @@ public class UserAction extends BaseAction implements ModelDriven<UserVO> {
 				writeJson(dataObject);
 				return;
 			}
-			user.setId(UUID.randomUUID().toString());
-			user.setCreateDate(new Date());
-			user.setModifyDate(user.getCreateDate());
+//			user.setId(UUID.randomUUID());
+//			user.setCreateDate(new Date());
+//			user.setModifyDate(user.getCreateDate());
 			user.setPassword(Encrypt.e(user.getPassword()));
 			User u = new User();
 			try {
@@ -86,26 +89,34 @@ public class UserAction extends BaseAction implements ModelDriven<UserVO> {
 			writeJson(dataObject);
 		}
 	}
-
-	public void add() {
+	@Action(value = "test", 
+			results = { @Result(name = "success", location = "/login.jsp") })
+	public String test() {
+		LOGGER.info("进入useraction");
+		return "success";
+	}
+	
+	@Action(value = "add", 
+			results = { @Result(name = "success", location = "/index.jsp") })  
+	public String add() {
 		DataObject dataObject = new DataObject();
 		if (user != null) {
-			if (StringUtils.isBlank(user.getUsername())) {
+			if (StringUtils.isBlank(user.getUserName())) {
 				dataObject.setMsg("用户名不能为空！");
 				writeJson(dataObject);
-				return;
+				return "success";
 			} else if (userService.isUsernameExists(user)) { // 用户名已经存在
 				dataObject.setMsg("用户名已经存在！");
 				writeJson(dataObject);
-				return;
+				return "success";
 			} else if (StringUtils.isBlank(user.getPassword())) {
 				dataObject.setMsg("密码不能为空！");
 				writeJson(dataObject);
-				return;
+				return "success";
 			}
-			user.setId(UUID.randomUUID().toString());
-			user.setCreateDate(new Date());
-			user.setModifyDate(user.getCreateDate());
+//			user.setId(UUID.randomUUID().toString());
+//			user.setCreateDate(new Date());
+//			user.setModifyDate(user.getCreateDate());
 			user.setPassword(Encrypt.e(user.getPassword()));
 			User u = new User();
 			try {
@@ -128,12 +139,14 @@ public class UserAction extends BaseAction implements ModelDriven<UserVO> {
 			}
 			writeJson(dataObject);
 		}
+		return "succcess";
 	}
-
+	@Action(value = "userAction")
+//	@Results({@Result(name="success",location="/index.jsp")})
 	public void login() {
 		DataObject dataObject = new DataObject();
 		if (user != null) {
-			if (StringUtils.isBlank(user.getUsername())) {
+			if (StringUtils.isBlank(user.getUserName())) {
 				dataObject.setMsg("用户名不能为空！");
 				writeJson(dataObject);
 				return;
