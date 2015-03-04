@@ -1,0 +1,62 @@
+.content-minddle .middle-top h2{
+	color:#716F6F;
+	text-align:left;
+	margin-left:32px;
+}
+.classify{
+	text-align:left;
+	margin-left:32px;
+	margin-top:12px;
+}
+.classify li{
+	text-decoration:none;
+	display:inline-block; 
+	font-size:14px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.classify li a{
+	color:#7DCDE8;
+	font-size:14px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.middle-up .activity{
+	width:770px;
+	height:160px;
+	margin-top:2px;
+}
+.middle-up .activity .activity-logo{
+	width:160px;
+	height:160px;
+	float:left;
+	margin-left:32px;
+}
+.middle-up .activity .information{
+	width:350px;
+	height:160px;
+	float:left;
+}
+.middle-up .activity .information .activity-name{
+	text-align: left;
+	color:#3E90AD;
+	font-size:16px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+	margin-left:32px;
+}
+.middle-up .activity .information .activity-name a{
+	color:#3E90AD;
+	font-size:16px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.middle-up .activity .information .detailed-information li{
+	text-align: left;
+	font-size:13px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+	margin-left:32px;
+	margin-top:2px;
+}
+.middle-up .activity .share{
+	width:180px;
+	height:20px;
+	float:left;
+	margin-top:120px;
+}

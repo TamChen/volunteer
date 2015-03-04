@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xmlns:util="http://www.springframework.org/schema/util"  
+       xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">  
+  
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>  
+  
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+        <property name="cacheManager" ref="cacheManager"/>  
+        <property name="realm" ref="DefaultRealm"/>  
+    </bean>  
+      
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager"/>  
+    <bean id="DefaultRealm" class="edu.csust.volunteer.common.shiro.DefaultRealm"/>
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>  
+  
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+        <property name="securityManager" ref="securityManager"/>  
+        <property name="loginUrl" value="/login.jsp"/>  
+        <property name="successUrl" value="/index.jsp"/>  
+        <property name="unauthorizedUrl" value="/error.jsp"/>  
+        <!-- 为什么不配置filter的时候，不能处理authc的请求（那些需要授权的请求不是应该子安转到unauthorizedUrl的地址吗？非要配置authc这个filter才能控制跳转到loginUrl） -->  
+        <property name="filters">  
+            <util:map>  
+                <!-- 配置这个filter是为了让那些还没有登录的请求跳转到loginUrl去进行登录 -->  
+                <entry key="authc">  
+                    <bean class="org.apache.shiro.web.filter.authc.PassThruAuthenticationFilter"/>  
+                </entry>  
+            </util:map>  
+        </property>  
+        <property name="filterChainDefinitions">  
+            <!-- /doLogin.htm = anon 表示/doLogin.htm匹配的请求属于匿名请求，允许那些还没有登录的用户访问  
+                 /err.htm = authc 表示/err.htm匹配的请求需要已经验证登录成功的用户访问，否则跳转到登录页面loginUrl进行登录 -->  
+                 <!-- 需要经过验证才能进入index -->
+            <value>  
+            	/static/** = anon
+                /login.jsp = anon  
+                /userAction!login.action*=anon
+                /news/new-list.html=authc
+                /**=authc
+            </value>  
+        </property>  
+    </bean>  
+  
+</beans>  
