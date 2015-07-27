@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A basic demo of Cropper.">
+  <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery plugin, image cropping, front-end, frontend, web development">
+  <meta name="author" content="Fengyuan Chen">
+  <title>Cropper</title>
+  <link href="../../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/cropper/cropper.css" rel="stylesheet">
+  <link href="../../static/cropper/main.css" rel="stylesheet">
+  <script type="text/javascript" src="../../static/js/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+
+   <!-- Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3 class="page-header" style="font-family:'微软雅黑'">上传活动海报(第二次)：</h3>
+      	<div class="img-container" id="activityimg">
+     
+        </div> 
+        <div style="width:100p;height:40px;">
+        		<button class="btn btn-primary" style="margin-left:70%;" type="button" onclick="uploadCropperPic()">保存</button>
+				<button class="btn btn-primary" style="margin-left:2%;" type="button" onclick="cancel()" >取消</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <h3 class="page-header" style="font-family:'微软雅黑'">预览:</h3>
+        <div class="docs-preview clearfix">
+          <div class="img-preview preview-lg"></div>
+          <div class="img-preview preview-md"></div>
+        </div>
+
+        <h3 class="page-header" style="font-family:'微软雅黑'">数据:</h3>
+        <div class="docs-data">
+          <div class="input-group">
+            <label class="input-group-addon" for="dataX">X</label>
+            <input class="form-control" id="dataX" type="text" placeholder="x">
+            <span class="input-group-addon">px</span>
+          </div>
+          <div class="input-group">
+            <label class="input-group-addon" for="dataY">Y</label>
+            <input class="form-control" id="dataY" type="text" placeholder="y">
+            <span class="input-group-addon">px</span>
+          </div>
+          <div class="input-group">
+            <label class="input-group-addon" for="dataWidth">宽度</label>
+            <input class="form-control" id="dataWidth" type="text" placeholder="width">
+            <span class="input-group-addon">px</span>
+          </div>
+          <div class="input-group">
+            <label class="input-group-addon" for="dataHeight">高度</label>
+            <input class="form-control" id="dataHeight" type="text" placeholder="height">
+            <span class="input-group-addon">px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <!-- Alert -->
+  <div class="docs-alert"><span class="warning message"></span></div>
+  <!-- Scripts -->
+<script type="text/javascript" src="../../static/bootstrap/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="../../static/cropper/cropper2.js"></script>
+  <script type="text/javascript" src="../../static/cropper/main2.js"></script>
+<!--   <script type="text/javascript" src="../../static/js/activity/activitypic.js"></script> -->
+  <script type="text/javascript">
+  </script>
+</body>
+</html>

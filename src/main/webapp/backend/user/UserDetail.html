@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="js">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>新增新闻</title>
+<meta name="keywords" content="table">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link href="../../ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<link href="../../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/style/layout/bootstrap.css" rel="stylesheet">
+<script type="text/javascript" src="../../static/js/jquery-1.8.2.min.js"></script>
+<link rel="stylesheet" href="../../static/bootstrap/bootstrap-datetimepicker.css" type="text/css"></link>
+<script type="text/javascript" src="../../static/bootstrap/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="../../static/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+
+<script type="text/javascript">
+var UMEDITOR_HOME_URL="/volunteer/ueditor/"
+</script>
+
+</head>
+<body>
+	<div class="admin-content">
+		<div class="page-header" >
+		  <p style="font-family:微软雅黑;font-size:16px;">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#428BCA;"><a href="UserManage.html">用户管理</a></span>>><span style="color:#428BCA;"><a>用户信息</a></span></p>
+		</div>
+			<ul class="list-group">
+  			<li class="list-group-item" style="width:120px;font-family:微软雅黑;float:left;">
+		   	 	用户详细信息
+  			</li>
+  			<li style="width:300px;margin-left:60%;font-family:'微软雅黑';list-style-type:none;" id="endActivityDiv">
+  				<button class="btn btn-primary" type="button" onclick="editUser()"> 修改信息</button>
+  			</li> 
+		</ul>
+	  <!--主体内容-->
+	<div class="am-g">
+	    <div class="am-u-sm-12">
+	      <br>
+			<table style="float: left;width:200px;height: 300px;margin-left:0%"  class="am-table  table-main table-bordered">
+	      		<tr><td height="300px"><div><img id="userHead" width="200px" height="200px" style="margin-top:0px;width: 200px;height: 200px;" border=0 src=""></div></td></tr>
+	      	</table>
+	      	
+	      	<table style="float: left;font-family:微软雅黑;margin-left:4%;width: 35%;min-height: 300px;"  class="table table-condensed">
+		      	<tr><td width="160px;">姓名</td><td><span id="username" style="text-align: left;"></span></td></tr>
+		      	<tr><td>学号</td><td><span id="userno"></span></td></tr>
+		      	<tr><td>学院</td><td><span id="userCollege"></span></td></tr>
+		      	<tr><td>专业</td><td><span id="userMajor"></span></td></tr>
+		      	<tr><td>邮箱</td><td><span id="userMail"></span></td></tr>
+		      	<tr><td>义工时长</td><td><span id="workTime"></span></td></tr>
+	      	</table>
+	      	<table style="float: left;font-family:微软雅黑;width: 35%;min-height: 300px;"  class="table table-condensed">
+		      	<tr><td width="160px;">&nbsp;</td><td><span id="ActivityTitle" style="text-align: left;"></span></td></tr>
+		      	<tr><td>性别</td><td><span id="userSex"></span></td></tr>
+		      	<tr><td>电话</td><td><span id="userTele"></span></td></tr>
+		      	<tr><td>生日</td><td><span id="userBir"></span></td></tr>
+		      	<tr><td>密码</td><td><span id="password"></span></td></tr>
+		      	<tr><td>排名</td><td><span id="userRate"></span></td></tr>
+	      	</table>
+	 	</div>
+	 	<div style="width:100%;height:30px;margin-top:320px;">
+			<ul class="list-group">
+  			<li class="list-group-item" style="width:120px;font-family:微软雅黑;float:left;">
+		   	 	用户简介
+  			</li>
+		</ul>
+		</div>
+	 	<div id="userIntro" style="width:100%;height:auto;margin-top:20px;"></div>
+		<div style="width:100%;height:30px;">
+			<ul class="list-group">
+  			<li class="list-group-item" style="width:140px;font-family:微软雅黑;float:left;">
+		    	<span class="badge" id="ActivityTotal"></span>
+		   	 	用户-活动
+  			</li>
+		</ul>
+		<div class="row-fluid" style="font-family:微软雅黑;">
+			<table class="table table-striped table-bordered table-hover datatable">
+				<thead>
+					<tr>
+						 <th class="table-id">序号</th>
+			             <th class="table-title">标题</th>
+			             <th class="table-title">发布方</th>
+			             <th class="table-title">活动地点</th>
+			             <th class="table-title">活动时间</th>
+			             <th class="table-title">获得时长</th>
+			             <th class="table-title">用户状态</th><!-- 感兴趣、报名、参加、 -->
+			             <th class="table-title">活动状态</th>
+					</tr>
+				</thead>
+				<tbody id="userActivityTable">
+				</tbody>
+			</table>
+			<ul style="margin-left:60%;" class="pagination" id="pageActivity"></ul>
+		</div>
+			<div id="UserIntro" style="width:100%;height:auto;margin-top:20px;"></div>
+			
+		<ul class="list-group">
+  			<li class="list-group-item" style="width:180px;margin-top:10px;font-family:微软雅黑;">
+		   	 用户图片
+  			</li>
+		</ul>
+		<ul class="act_pic_list">
+		</ul>
+		
+		<div style="width:100%;height:30px;">
+			<ul class="list-group">
+  			<li class="list-group-item" style="width:140px;font-family:微软雅黑;float:left;">
+		    	<span class="badge" id="LogTotal"></span>
+		   	 	用户-日志
+  			</li>
+		</ul>
+		<div class="row-fluid" style="font-family:微软雅黑;">
+			<table class="table table-striped table-bordered table-hover datatable">
+				<thead>
+					<tr>
+						 <th class="table-id">序号</th>
+						 <th class="table-id">标题</th>
+						 <th class="table-id">发布时间</th>
+						 <th class="table-id">是否精品</th>
+						 <th class="table-id">状态</th>
+					</tr>
+				</thead>
+				<tbody id="userRecordTable">
+				</tbody>
+			</table>
+			<ul style="margin-left:60%;" class="pagination" id="pageLog"></ul>
+		</div>
+		<!-- 用户个人风采没有什么意义，以后再说的吧 -->
+ 	</div>
+ </div>
+ </div>  
+ </div>
+<script src="../../static/js/user/UserDetail.js" charset="utf-8"></script>
+<script type="text/javascript" src="../../static/jBootstrapPage/jBootstrapPage.js"></script>
+ </body>
+</html>
