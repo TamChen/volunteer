@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.ArrayUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import edu.csust.volunteer.dao.BaseDao;
-
+@Repository("baseDao")
 public class BaseDaoImpl<T> implements BaseDao<T> {
 	private SessionFactory sessionFactory;
 
@@ -50,43 +50,25 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		Query query = getSession().createQuery(hql);
 		@SuppressWarnings("unchecked")
 		List<T> list = query.list();
-		if (CollectionUtils.isNotEmpty(list)) {
-			return list.get(0);
-		}
-		return null;
+		return getTheFirstElementOfList(list);
 	}
 
 	@Override
 	public T load(String hql, Object[] params) {
 		Query query = getSession().createQuery(hql);
-		if (ArrayUtils.isNotEmpty(params)) {
-			for (int i = 0; i < params.length; i++) {
-				query.setParameter(i, params[i]);
-			}
-		}
+		setObjectParams(query, params);
 		@SuppressWarnings("unchecked")
 		List<T> list = query.list();
-		if (CollectionUtils.isNotEmpty(list)) {
-			return list.get(0);
-		}
-		return null;
+		return getTheFirstElementOfList(list);
 	}
 
 	@Override
 	public T load(String hql, Map<String, ?> params) {
 		Query query = getSession().createQuery(hql);
-		if (MapUtils.isNotEmpty(params)) {
-			Set<String> keys = params.keySet();
-			for (String key : keys) {
-				query.setParameter(key, params.get(key));
-			}
-		}
+		setMapParams(query,params);
 		@SuppressWarnings("unchecked")
 		List<T> list = query.list();
-		if (CollectionUtils.isNotEmpty(list)) {
-			return list.get(0);
-		}
-		return null;
+		return getTheFirstElementOfList(list);
 	}
 
 	@Override
@@ -94,48 +76,33 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		getSession().saveOrUpdate(t);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> find(String hql) {
 		Query query = getSession().createQuery(hql);
-		return query.list();
+		@SuppressWarnings("unchecked")
+		List<T> list = query.list();
+		return getNotEmptyList(list);
 	}
 
 	@Override
 	public List<T> find(String hql, Map<String, ?> params) {
 		Query query = getSession().createQuery(hql);
-		if (MapUtils.isNotEmpty(params)) {
-			Set<String> keys = params.keySet();
-			for (String key : keys) {
-				query.setParameter(key, params.get(key));
-			}
-		}
+		setMapParams(query,params);
 		@SuppressWarnings("unchecked")
 		List<T> list = query.list();
-		if (CollectionUtils.isNotEmpty(list)) {
-			return list;
-		}
-		return null;
+		return getNotEmptyList(list);
 	}
 
 	@Override
 	public List<T> find(String hql, Map<String, ?> params, int pageIndex,
 			int pageSize) {
 		Query query = getSession().createQuery(hql);
-		if (MapUtils.isNotEmpty(params)) {
-			Set<String> keys = params.keySet();
-			for (String key : keys) {
-				query.setParameter(key, params.get(key));
-			}
-		}
+		setMapParams(query,params);
 		int firstResult = (pageIndex - 1) * pageSize;
 		query.setFirstResult(firstResult).setMaxResults(pageSize);
 		@SuppressWarnings("unchecked")
 		List<T> list = query.list();
-		if (CollectionUtils.isNotEmpty(list)) {
-			return list;
-		}
-		return null;
+		return getNotEmptyList(list);
 	}
 
 	@Override
@@ -145,10 +112,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		query.setFirstResult(firstResult).setMaxResults(pageSize);
 		@SuppressWarnings("unchecked")
 		List<T> list = query.list();
-		if (CollectionUtils.isNotEmpty(list)) {
-			return list;
-		}
-		return null;
+		return getNotEmptyList(list);
 	}
 
 	@Override
@@ -160,13 +124,45 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public Long getCount(String hql, Map<String, ?> params) {
 		Query query = getSession().createQuery(hql);
+		setMapParams(query,params);
+		return (Long) query.uniqueResult();
+	}
+	
+	public Object uniqueQuery(String hql, Object[] parameters) {
+		Query query=this.sessionFactory.getCurrentSession().createQuery(hql);
+		setObjectParams(query, parameters);
+		return query.uniqueResult();
+	}
+	
+	//设置参数的方法
+	public void setObjectParams(Query query, Object[] params) {
+		System.out.println(params.toString());
+	    if (params != null&&params.length>0) {
+	        for (int i = 0; i < params.length; i++) {
+	            query.setParameter(i, params[i]);
+	        }
+	    }
+	}
+	public void setMapParams(Query query, Map<String, ?> params) {
 		if (MapUtils.isNotEmpty(params)) {
 			Set<String> keys = params.keySet();
 			for (String key : keys) {
 				query.setParameter(key, params.get(key));
 			}
 		}
-		return (Long) query.uniqueResult();
 	}
-
+	//getNotEmptyList
+	public List<T> getNotEmptyList(List<T> list){
+		if (CollectionUtils.isNotEmpty(list)) {
+			return list;
+		}
+		return null;
+	}
+	//getTheFirstElementOfList
+	public T getTheFirstElementOfList(List<T> list){
+		if (CollectionUtils.isNotEmpty(list)) {
+			return list.get(0);
+		}
+		return null;
+	}
 }

@@ -31,4 +31,6 @@ public interface BaseDao<T> {
 	public Long getCount(String hql);
 
 	public Long getCount(String hql, Map<String, ?> params);
+	
+	public Object uniqueQuery(String hql, Object[] parameters);
 }

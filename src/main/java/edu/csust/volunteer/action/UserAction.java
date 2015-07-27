@@ -1,182 +1,91 @@
 package edu.csust.volunteer.action;
+import java.io.UnsupportedEncodingException;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.UUID;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import javax.annotation.Resource;
-
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
-import org.apache.struts2.convention.annotation.Results;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.opensymphony.xwork2.ModelDriven;
-
-import edu.csust.volunteer.model.DataObject;
-import edu.csust.volunteer.model.User;
+import edu.csust.volunteer.exception.UserBlockedException;
+import edu.csust.volunteer.exception.UserException;
+import edu.csust.volunteer.exception.UserNotExistsException;
 import edu.csust.volunteer.service.UserService;
-import edu.csust.volunteer.util.Encrypt;
 import edu.csust.volunteer.vo.UserVO;
 
-@Results( { @Result(name = "success", location = "/main.jsp"), 
-@Result(name = "error", location = "/error.jsp") }) 
-public class UserAction extends BaseAction implements ModelDriven<UserVO> {
-
+/**
+ * @author tam7
+ *用户相关操作中心，登陆，退出
+ *1、log4j或者是slf4j，选一个作为日志记录
+ *2、验证码，利用Kaptcha形成
+ *3、用AJAX和session设值
+ *4、用户试错密码十次就自动锁住十分钟
+ *5、安全，授权部分代码
+ */
+@Action(value = "userAction", results={
+		@Result(name="success",type="redirect",location="/index.jsp"),
+	    @Result(name="input",type="redirect",location="/login.jsp"),
+	    @Result(name="login",type="redirect",location="/login.jsp")
+}) 
+public class UserAction extends BaseAction<UserVO>{
+	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(UserAction.class);
-
-	private UserVO user;
-
+	private String userno;
+	private String password;
+	private Subject subject;
+	@Autowired
 	private UserService userService;
-
-	public UserVO getUser() {
-		return user;
-	}
-
-	public void setUser(UserVO user) {
-		this.user = user;
-	}
-
-	@Resource
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
-
-//	public void test() {
-//		LOGGER.info("进入useraction");
-//	}
-
-	public void regist() {
-		DataObject dataObject = new DataObject();
-		if (user != null) {
-			if (StringUtils.isBlank(user.getUserName())) {
-				dataObject.setMsg("用户名不能为空！");
-				writeJson(dataObject);
-				return;
-			} else if (userService.isUsernameExists(user)) { // 用户名已经存在
-				dataObject.setMsg("用户名已经存在！");
-				writeJson(dataObject);
-				return;
-			} else if (StringUtils.isBlank(user.getPassword())) {
-				dataObject.setMsg("密码不能为空！");
-				writeJson(dataObject);
-				return;
+	public String login() throws UnsupportedEncodingException {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		userno=request.getParameter("userno");
+		password=request.getParameter("password");
+		session.setAttribute("userno", userno);
+		LOGGER.info(userno+"+++"+password);
+		subject=SecurityUtils.getSubject();
+		try {
+			if (!userService.isUserNoExists(userno)) {
+				throw new UserNotExistsException();
 			}
-//			user.setId(UUID.randomUUID());
-//			user.setCreateDate(new Date());
-//			user.setModifyDate(user.getCreateDate());
-			user.setPassword(Encrypt.e(user.getPassword()));
-			User u = new User();
-			try {
-				BeanUtils.copyProperties(u, user);
-			} catch (Exception e1) {
-				e1.printStackTrace();
+			if (!userService.isUserNoBlocked(userno)) {
+				throw new UserBlockedException();
 			}
-			try {
-				Serializable res = userService.save(u);
-				if (res != null) {
-					dataObject.setSuccess(true);
-					dataObject.setMsg("注册成功！");
-				} else {
-					dataObject.setMsg("注册失败！");
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				dataObject.setMsg("注册失败！");
-			}
-			writeJson(dataObject);
+			UsernamePasswordToken token = new UsernamePasswordToken(userno,password);
+			//false登录成功用户信息才会保存到session中
+			token.setRememberMe(false);
+			subject.login(token);
+			LOGGER.info("isAuthenticated:"+subject.isAuthenticated());
+			LOGGER.info("login success");
+		}catch (UserNotExistsException e) {
+			LOGGER.info("User is not exists");
+			session.setAttribute("message", "用户不存在");
+			return INPUT;
+		}catch (UserBlockedException e) {
+			LOGGER.info("User is blocked");
+			session.setAttribute("message", "用户被锁");
+			return INPUT;
+		}catch (IncorrectCredentialsException e) {
+			LOGGER.info("UserNo or password is incorrect");
+			session.setAttribute("message", "账号或密码错误");
+			return INPUT;
+		}catch (UserException e) {
+			LOGGER.info("Unknow mistake");
+			session.setAttribute("message", "未知错误");
+			return INPUT;
 		}
+		return SUCCESS;
 	}
-	@Action(value = "test", 
-			results = { @Result(name = "success", location = "/login.jsp") })
-	public String test() {
-		LOGGER.info("进入useraction");
-		return "success";
-	}
-	
-	@Action(value = "add", 
-			results = { @Result(name = "success", location = "/index.jsp") })  
-	public String add() {
-		DataObject dataObject = new DataObject();
-		if (user != null) {
-			if (StringUtils.isBlank(user.getUserName())) {
-				dataObject.setMsg("用户名不能为空！");
-				writeJson(dataObject);
-				return "success";
-			} else if (userService.isUsernameExists(user)) { // 用户名已经存在
-				dataObject.setMsg("用户名已经存在！");
-				writeJson(dataObject);
-				return "success";
-			} else if (StringUtils.isBlank(user.getPassword())) {
-				dataObject.setMsg("密码不能为空！");
-				writeJson(dataObject);
-				return "success";
-			}
-//			user.setId(UUID.randomUUID().toString());
-//			user.setCreateDate(new Date());
-//			user.setModifyDate(user.getCreateDate());
-			user.setPassword(Encrypt.e(user.getPassword()));
-			User u = new User();
-			try {
-				BeanUtils.copyProperties(u, user);
-			} catch (Exception e1) {
-				e1.printStackTrace();
-			}
-			try {
-				Serializable res = userService.save(u);
-				if (res != null) {
-					dataObject.setSuccess(true);
-					dataObject.setMsg("添加成功！");
-					dataObject.setObject(user);
-				} else {
-					dataObject.setMsg("添加失败！");
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				dataObject.setMsg("添加失败！");
-			}
-			writeJson(dataObject);
-		}
-		return "succcess";
-	}
-	@Action(value = "userAction")
-//	@Results({@Result(name="success",location="/index.jsp")})
-	public void login() {
-		DataObject dataObject = new DataObject();
-		if (user != null) {
-			if (StringUtils.isBlank(user.getUserName())) {
-				dataObject.setMsg("用户名不能为空！");
-				writeJson(dataObject);
-				return;
-			} else if (StringUtils.isBlank(user.getPassword())) {
-				dataObject.setMsg("密码不能为空！");
-				writeJson(dataObject);
-				return;
-			}
-			user.setPassword(Encrypt.e(user.getPassword()));
-			User tu = userService.login(user);
-			if (tu != null) {
-				try {
-					BeanUtils.copyProperties(user, tu);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				dataObject.setSuccess(true);
-				dataObject.setMsg("登录成功！");
-			} else {
-				dataObject.setMsg("用户名或密码不正确！");
-			}
-			writeJson(dataObject);
-		}
-	}
-
-	@Override
-	public UserVO getModel() {
-		if (user == null) {
-			user = new UserVO();
-		}
-		return user;
+	public String logout(){
+    	SecurityUtils.getSubject().logout();
+    	LOGGER.info("isAuthenticated:"+SecurityUtils.getSubject().isAuthenticated());
+    	LOGGER.info("退出成功");
+		return LOGIN;
 	}
 }

@@ -6,13 +6,13 @@ public class DataObject implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private boolean success;
-	private String msg;
+	private String info;
 	private Object object;
 
-	public DataObject(boolean success, String msg, Object object) {
+	public DataObject(boolean success, String info, Object object) {
 		super();
 		this.success = success;
-		this.msg = msg;
+		this.info = info;
 		this.object = object;
 	}
 
@@ -27,12 +27,12 @@ public class DataObject implements Serializable {
 		this.success = success;
 	}
 
-	public String getMsg() {
-		return msg;
+	public String getInfo() {
+		return info;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setInfo(String info) {
+		this.info = info;
 	}
 
 	public Object getObject() {

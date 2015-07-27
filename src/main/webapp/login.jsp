@@ -9,16 +9,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>Login</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<META   HTTP-EQUIV="pragma"   CONTENT="no-cache">   
-    <meta http-equiv="Pragma" content="no-cache"">   
+    <meta http-equiv="Pragma" content="no-cache">   
     <meta http-equiv="Expires" content="Mon,12 May 2001 00:20:00 GMT">
-	<link rel="stylesheet" type="text/css" href="style/layout/login.css">
+	<link rel="stylesheet" type="text/css" href="static/style/layout/login.css">
 	<style type="text/css">
 	body{
 		height:100%;
@@ -46,24 +46,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <div class="cover">
-  <img alt="" src="style/images/bg.jpg"/>
+  <img alt="" src="static/style/images/bg.jpg"/>
   </div>
-  
-   <!-- 
-    <form method="post" action="login" >
-         UserName<input type="text" name="name" id="name"/><br/>
-         Password<input type="password" name="password" id="password"/><br/>
-     <input type="submit" value="login" /></form>
-     -->
-      <!-- 
-     <form id="login" method="post" action="login">
-  -->
-      <form id="login" action="manageLogin" method="post">
-    <h1>管理员登录</h1>
 
-    <fieldset id="inputs" >
+  <form id="login" action="userAction!login.action" method="post">
+    <h1>义工平台登录</h1>
+    <fieldset id="inputs">
 
-        <input id="name" name="name" type="text" placeholder="用户名" autofocus required>   
+        <input id="name" name="userno" type="text" placeholder="账号" autofocus required>   
 
         <input id="password" name="password" type="password" placeholder="密码" required>
 
@@ -73,28 +63,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <input type="submit" id="submit"  value="登  录"/>
 
-        <a href="">忘记密码?</a><a href="">注册</a>
+        <a href="">忘记密码?</a>
 
     </fieldset>
-<!--  
-    <a href="http://www.sharejs.com/subject/1599" id="back">Back to article...</a>
--->
+
 </form>
 <!-- BSA AdPacks code -->
 
-	<script src="javascript/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript">
-	function login(){
-		var name=$("#name").attr("value");
-		var password=$("#password").attr("value");
-		alert(name);
-		alert(password);
-		$.ajax({
-			url:'${pageContext.request.contextPath}/login.action'
-		});
-	}
-	
-
-	</script>
+	<script src="js/jquery-1.6.2.min.js"></script>
   </body>
 </html>

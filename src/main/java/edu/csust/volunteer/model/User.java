@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,14 +14,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 @Entity
 @Table(name = "t_user")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-	private String userName;
-	private String userNo;
+	private String username;
+	private String userno;
 	private String password;
 	private String userHead;
 	private int userSex;
@@ -29,7 +32,8 @@ public class User implements Serializable {
 	private String userTel;
 	private String userMail;
 	private String userAddress;
-
+    private String status;
+     
 	@Column(name = "UGRADE", length = 100, nullable = false)
 	public int getUsergrade() {
 		return userGrade;
@@ -115,20 +119,20 @@ public class User implements Serializable {
 
 	@Column(name = "UNAME", length = 100, nullable = false)
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		this.userName = username;
+		this.username = username;
 	}
 	
 	@Column(name = "UNO", length = 100, unique = true, nullable = false)
 	public String getUserno() {
-		return userNo;
+		return userno;
 	}
 
 	public void setUserno(String userno) {
-		this.userNo = userno;
+		this.userno = userno;
 	}
 	
 	@Column(name = "UPASSWORD", length = 32, nullable = false)
@@ -138,6 +142,15 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Column(name = "USTATUS", length = 12, nullable = false)
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

@@ -42,19 +42,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean isUsernameExists(UserVO user) {
-		return userDao.isUsernameExists(user);
+	public Boolean isUserNoExists(String userNo) {
+		return userDao.isUserNoExists(userNo);
 	}
 
-	@Override
-	public User login(UserVO user) {
-		String hql = "from User where username = :username and password = :password";
-		// Object[] params = {user.getUsername(), user.getPassword()};
-		Map<String, Object> params = new HashMap<String, Object>();
-//		params.put("username", user.getUsername());
-//		params.put("password", user.getPassword());
-		return userDao.load(hql, params);
-	}
 
 	private String initOrder(UserVO user, String hql) {
 //		String sort = user.getSort();
@@ -65,6 +56,7 @@ public class UserServiceImpl implements UserService {
 //			}
 //			hql += " order by " + sort + " " + order;
 //		}
+		
 		return hql;
 	}
 
@@ -75,6 +67,28 @@ public class UserServiceImpl implements UserService {
 			params.put("username", "%" + username.trim() + "%");
 		}
 		return hql;
+	}
+
+	@Override
+	public List<User> queryUserAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserVO getUserByUserNo(String userno) {
+		UserVO user=new UserVO();
+		String hql="select password from User where userno = ?";
+		Object params[]={userno};
+		String password=userDao.getPasswordByUserNo(hql, params);
+		user.setUserNo(userno);
+		user.setPassword(password);
+		return user;
+	}
+
+	@Override
+	public boolean isUserNoBlocked(String userNo) {
+		return userDao.isUserNoBlocked(userNo);
 	}
 
 }
