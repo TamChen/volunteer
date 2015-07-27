@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+    <diskStore path="cacheIO" />
+
+
+    <defaultCache maxElementsInMemory="10000" eternal="true"
+                  overflowToDisk="false" diskPersistent="false"
+                  diskExpiryThreadIntervalSeconds="1800" memoryStoreEvictionPolicy="FIFO">
+    </defaultCache>
+   <!-- 将所有查询数据库的都搬到缓存中 --> 
+	<cache name="myCommonCache"
+           maxElementsInMemory="300"
+           eternal="true"
+           overflowToDisk="false"
+           timeToIdleSeconds="12000"
+           timeToLiveSeconds="12000"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"  />
+           
+    <cache name="activityCache"
+           maxElementsInMemory="300"
+           eternal="true"
+           overflowToDisk="false"
+           timeToIdleSeconds="12000"
+           timeToLiveSeconds="12000"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"  />
+           
+    <cache name="userCache"
+           maxElementsInMemory="300"
+           eternal="true"
+           overflowToDisk="false"
+           timeToIdleSeconds="12000"
+           timeToLiveSeconds="12000"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"  />
+	</ehcache>
+	
+
+ 

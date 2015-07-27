@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="hibernate">
+
+    <diskStore path="java.io.tmpdir"/>
+    
+	<cache name="org.hibernate.cache.UpdateTimestampsCache"
+	    maxElementsInMemory="5000" 
+	    eternal="true" 
+	    overflowToDisk="true" />
+	    
+	<cache name="org.hibernate.cache.StandardQueryCache"
+	    maxElementsInMemory="10000" 
+	    eternal="false" 
+	    timeToLiveSeconds="120"
+	    overflowToDisk="true" />
+	    
+    <defaultCache
+            maxEntriesLocalHeap="1000"
+            eternal="false"
+            timeToIdleSeconds="3600"
+            timeToLiveSeconds="3600"
+            overflowToDisk="false">
+    </defaultCache>
+
+    <cache name="edu.csust.volunteer.model.User"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    
+	<cache name="edu.csust.volunteer.model.Album"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.Attention"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.Info"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.Notice"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.Picture"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.Statistics"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.UserActivity"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    <cache name="edu.csust.volunteer.model.UserDiary"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="false">
+    </cache>
+    
+</ehcache>

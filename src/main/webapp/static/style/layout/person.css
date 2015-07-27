@@ -1,0 +1,639 @@
+body a:hover{
+	text-decoration:none;
+}
+.row .col-md-9{
+	
+	height: auto;
+	text-align: left;
+}
+/*名字*/
+.col-md-9 .col-md-10{
+	margin-top:90px;
+	width:100%;
+	height:auto;
+	text-align: left;
+}
+/*导航栏*/
+.col-md-9 .col-md-11{
+	margin-top:20px;
+	width:100%;
+	height:30px;
+}
+/*主体*/
+.col-md-9 .col-md-12{
+	margin-top:20px;
+	width:100%;
+	height:auto;
+	margin-left: -10px;
+	text-align: left;
+		border-radius: 10px;
+	border-width: 1px;
+	border-color:#DFDFDF;
+	border-style: solid;
+}
+.col-md-3 #friend{
+	width:100%;
+	height:20px;
+	margin-top:10px;
+	text-align:left;
+	margin-left:90px;
+	display:none;
+}
+
+#intro{
+	font-family: '微软雅黑';
+	width:240px;
+	height:auto;
+	margin-top:10px;
+	margin-left:10px;
+	text-align:left;
+}
+#textarea{
+	width:220px;
+	height:40px;
+	overflow-y:hidden;
+	border:1; 
+	font-size:12px;
+	font-family: '微软雅黑';
+}
+#input-intro{
+    display: none; 
+	margin-left:10px;
+	width:240px;
+	height:auto;
+	margin-top:10px;;
+	text-align:left;
+	font-family: '微软雅黑';
+}
+#intro_submit{
+	margin-top:15px;
+	margin-left:150px;
+}
+#intro_cancel{
+	margin-top:15px;
+	margin-left:0px;
+}
+.col-md-10 #usertitile{
+	font-family: '微软雅黑';
+	font-size: 24px;
+	text-align: left;
+	float:left;
+}
+.col-md-10 #sign{
+	margin-left: 10px;
+	display: inline; 
+	font-family: '微软雅黑';
+	font-size: 12px;
+	float:left;
+}
+#edit_sign{
+	margin-left:10px;
+	font-family: '微软雅黑';
+}
+#sign_submit{
+	font-family:'微软雅黑';
+}
+#sign_cancel{
+	font-family:'微软雅黑';
+}
+#input_sign{
+	margin-left:10px;
+	 display: none; 
+	 float:left; 
+}
+#userlist {
+	font-family: '微软雅黑';
+	text-align: left;
+}
+#userlist a {
+	font-size: 14px;
+	list-style: none;
+	display: inline-block;
+	text-decoration: none;
+	margin-left: 12px;
+	color:#808080;
+}
+.mail_nav{
+	font-family: '微软雅黑';
+	font-size: 12px;
+	display:none;
+}
+.setting_nav{
+	font-family: '微软雅黑';
+	font-size: 12px;
+	display:none;
+}
+.middle-attention #attention{
+	width: 250px;
+	height: auto;
+	margin-top: 10px;
+	text-align: left;
+	font-family: '微软雅黑';
+	font-size: 12px;
+	max-height:225px;
+	overflow:hidden;
+}
+.middle-attention #attention li{
+	display: inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+.sub-title{
+	width:100%;
+	height:auto;
+	font-family:'微软雅黑';
+	font-size:15px;
+	text-align:left;
+	color:#333;
+}
+.col-md-9 a:hover{
+	color:#333;
+}
+.user-activity-list{
+	width: 100%;
+	height: 185px;
+	font-family: '微软雅黑';
+}
+.user-activity-list .col-md-2{
+	width: 110px;
+	height: 116px;
+	float: left;
+	text-align: left;
+}
+.user-activity-list .col-md-7{
+	width: 400px;
+	height: auto;
+	float: left;
+	margin-left: 20px;
+	text-align: left;
+}
+.col-md-7 li{
+	margin-top: 4px;
+	font-size: 13px;
+}
+.col-md-7 .title{
+	font-size: 16px;
+	color: #3377AA;
+}
+.col-md-7 .detail{
+	margin-top: 10px;
+	margin-left: 5px;
+}
+.user-act{
+	width: 100%;
+	height: auto;
+	max-height：227px;
+	overflow:hidden;
+	text-align: left;
+
+}
+
+.user-act li{
+	display: inline-block;
+	margin-left: 40px;
+	margin-top: 12px;
+}
+
+.user-friend{
+	width: 100%;
+	height: 85px;
+	font-family: '微软雅黑';
+}
+.col-md-12 .user-record-list{
+	margin-top: 20px;
+}
+.open{
+	float:right;
+	margin-right:40px;
+	font-size: 12px;
+	font-family: '微软雅黑';
+}
+.user-record-list .col-md-9{
+	margin-top:10px;
+	width: 100%;
+	height: auto;
+}
+.record-title{
+	font-size: 14px;
+	font-family: '微软雅黑';
+}
+.record-time{
+	font-size: 10px;
+	font-family: '微软雅黑';
+}
+.record-detail{
+	width: 100%;
+	height:auto;
+	max-height: 54px;
+	overflow: hidden;
+	font-family: '微软雅黑';
+}
+.location-user{
+	margin-top:15px;
+	font-size:14px;
+	margin-left:894px;
+	font-family: '微软雅黑';
+}
+.user-notice-list{
+	width: 100%;
+	height: 85px;
+	font-family: '微软雅黑';
+}
+#all_friend .user-friend{
+	display: inline-block;
+	height:120px;
+	margin-left: 20px;
+	margin-top: 10px;
+	text-align:center;
+	
+}
+#all_friend .all_pic .pic_user_name{
+	width:100%;
+	height:20px; 
+	max-height:20px;
+	overflow:hidden;
+	font-family: '微软雅黑';
+}
+#attention_user{
+	width:40px;
+	height:20px;
+	font-family:'微软雅黑';
+}
+.cancel_attention{
+	font-family:'微软雅黑';
+}
+.mail_user{
+	width:40px;
+	height:20px;
+	font-family:'微软雅黑';
+}
+#mail_content{
+	width:100%;
+	height:250px;
+	font-family:'微软雅黑';
+}
+#mail_submit{
+	font-size:14px;
+	width:50px;
+	height:30px;
+	margin-left:600px;
+	margin-top:20px;
+}
+#mail_cancel{
+	font-size:14px;
+	width:50px;
+	height:30px;
+	margin-left:10px;
+	margin-top:20px;
+}
+#reply_submit{
+	display:none;
+}
+#text_area{
+	display:none;
+	width:100%;
+	height:250px;
+}
+.email-chat{
+	margin-top:30px;
+}
+.split-line{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	color: #999;
+	border-top: 1px solid #eee;
+	line-height: 1px;
+}
+.chat{
+	margin-top:20px;
+	width:100%;
+	height:auto;
+}
+.chat .time{
+	width:80px;
+	height:20px;
+	float:right;
+	font-family:'微软雅黑';
+}
+.chat .pic{
+	margin-left:20px;
+	width:50px;
+	height:50px;
+	float:left;
+}
+.chat .content{
+	width:550px;
+	height:auto;
+	margin-left:10px;
+	float:left;
+}
+.content p{
+	font-family:'微软雅黑';
+	font-size:13px;
+}
+.content .sender{
+	font-size:14px;
+	font-family:'微软雅黑';
+}
+.operations{
+	float:right;
+	margin-right:40px;
+	font-family:'微软雅黑';
+}
+#mail_reply{
+	width:60px;
+	height:30px;
+	margin-top:30px;
+	margin-left:670px;
+	font-family:'微软雅黑';
+}
+.user_operate{
+	float:right;
+	margin-right:-100px;
+}
+.act_operate{
+	float:right;
+	margin-right:-200px;
+	font-family:'微软雅黑';
+}
+#record-title{
+	font-size:20px;
+	font-family:'微软雅黑';
+}
+.content_record{
+	width:95%;height:auto;margin-left:15px;font-family:'微软雅黑'
+}
+.all-record-detail{
+	width:95%;height:auto;
+	margin-top:10px;
+	font-family:'微软雅黑';
+}
+.delete_record{
+	float:right;
+	margin-right:-150px;
+	font-family:'微软雅黑';
+}
+.comment{
+	margin-top:20px;
+}
+.w-record{
+	float:right;
+	margin-right:-130px;
+	font-family:'微软雅黑';
+	display:none;
+}
+#submit_record_edit{
+	margin-top:20px;float:left;width:50px;height:30px;font-family:'微软雅黑';
+}
+#preview_record_edit{
+	margin-top:20px;float:left;width:50px;height:30px;margin-left:20px;font-family:'微软雅黑';
+}
+#cancel_record_edit{
+	margin-top:20px;float:right;width:50px;height:30px;font-family:'微软雅黑';
+}
+#log_content{
+	font-family:'微软雅黑';
+}
+#write_diary{
+	display:none;
+}
+#preview_diary{
+	display:none;
+}
+#continue_record{
+	margin-top:20px;float:left;width:50px;height:30px;margin-left:20px;font-family:'微软雅黑';
+}
+#publish_record{
+	margin-top:20px;float:left;width:50px;height:30px;font-family:'微软雅黑';
+}
+.each_album{
+	width:170px;
+	height:auto;
+	float:left;
+	margin-left:60px;
+	margin-top:30px;
+}
+.albumname{
+	font-family:'微软雅黑';
+	width:100%;
+	height:auto;
+	margin-top:15px;
+}
+.album{
+	background:url("../img/albumback.gif") 1px 1px no-repeat;
+	padding: 4px 7px 7px 4px;
+}
+.albumIntro{
+	font-family:'微软雅黑';
+	width:100%;
+	height:20px;
+	overflow:hidden;
+	margin-top:10px;
+}
+.addphoto{
+	width:75px;
+	height:18px;
+	float:right;
+	margin-right:-60px;	
+	font-family:'微软雅黑';
+}
+.addalbum{
+	width:75px;
+	height:18px;
+	float:right;
+	margin-right:-150px;
+	font-family:'微软雅黑';
+}
+.upload_muti_pic{
+	width:100%;
+	height:200px;
+	text-align:center;
+}
+.muti_input{
+	width:183px;
+	height:44px;
+	margin-top:70px;
+	margin-left:278px;
+	background:url("../img/upload.png");
+}
+.upload_muti_pic input{
+	width:183px;
+	height:44px;
+ 	opacity: 0; 
+ 	cursor: pointer;
+}
+.upload_tip{
+	width:100%;
+	height:auto;
+	color:#999999;
+	font-family:'微软雅黑';
+}
+.after_upload_tip{
+	float:left;
+	width:100%;
+	height:auto;
+	color:#999999;
+	margin-top:-20px;
+	margin-left:120px;
+	font-family:'微软雅黑';
+	display:inline;
+}
+.show_upload_pic{
+	/* display:none; */
+}
+.after_upload{
+ 	width:98px;
+	height:29px;
+/* 	background-color:green; */
+ 	background:url("../img/upload-btn.png");  
+}
+.after_upload input{
+	width:98px;
+	height:29px;
+	cursor: pointer;
+	opacity: 0; 
+}
+.show_upload_pic{
+	width:100%;
+	height:auto;
+}
+.each_pic{
+	width:170px;
+	height:auto;
+	float:left;
+	margin-left:60px;
+	margin-top:25px;
+}
+.upload_pic_intro{
+	font-family:'微软雅黑';
+	width:100%;
+	height:auto;
+	margin-top:15px;
+}
+.upload_pic_operate{
+	font-family:'微软雅黑';
+	width:100%;
+	height:auto;
+}
+.lable_title{
+	font-size:14px;
+	font-family:'微软雅黑';
+}
+.album_title{
+	width:100%;
+}
+.album_intro{
+	width:100%;
+	height:200px;
+}
+#album_submit{
+	float:right;
+	width:60px;
+	height:30px;
+	font-family:'微软雅黑';
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-right:20px;
+}
+#album_cancel{
+	float:right;
+	width:60px;
+	height:30px;
+	font-family:'微软雅黑';
+	margin-right:10px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.album_select{
+	 height: 28px;
+	background: #f8f8f8;
+	padding:0 20px;
+	border-bottom: 1px solid #ddd;
+}
+.col-md-12 .select_album{
+	display:inline-block;
+	margin-left:30px;
+	margin-top:20px;
+}
+.album_op{
+	float:right;
+	display:none;
+}
+.pic_intro{
+	width:100%;
+	height:20px;
+	overflow:hidden;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-family:'微软雅黑';
+}
+.user_pic{
+	width:auto;
+	height:auto;
+	max-height:170px;
+	max-width:170px;
+}
+.user_pic_item{
+	width:170px;
+	height:190px;
+	float:left;
+	display:inline-block;
+	margin-left: 40px;
+	margin-top: 30px;
+}
+#after_upload_input{
+	display: none;
+}
+.after_upload_tip{
+	display: none;
+}
+#upload_pic_show{
+	display: none;
+}
+#attend_title{
+	font-family:'微软雅黑';
+}
+#album_list{
+	display:none;
+}
+#pic_detail{
+	text-align:left;
+}
+.pic_intro_detail{
+	float:left;
+	margin-top:20px;
+}
+.pic_img{
+	width:auto;
+	height:auto;
+	max-width:600px;
+	max-height:600px;
+}
+#add_new_album{
+	display:none;
+}
+.deleteAlbum{
+	display:none;
+	width:30px;height:10px;float:right;
+	font-family:'微软雅黑';
+	margin-bottom:20px;
+}
+.register_nav{
+	display:none;
+}
+.index_nav{
+	display:none;
+}
+.info_nav{
+	display:none;
+}
+.attend_nav{
+	display:none;
+}
+.interest_nav{
+	display:none;
+}
+.album_nav{
+	display:none;
+}

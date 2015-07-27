@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>新增新闻</title>
+<meta name="keywords" content="table">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link href="../../ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+<link href="../../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/style/layout/bootstrap.css" rel="stylesheet">
+<script type="text/javascript">
+var UMEDITOR_HOME_URL="/volunteer/ueditor/"
+</script>
+</head>
+<body>
+	<div class="am-cf admin-main">
+		<!-- content start -->
+		<div class="admin-content">
+		<div class="page-header" >
+		  <p style="font-family:微软雅黑;font-size:16px;">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#428BCA;"><a href="BroadcastManage.html">公告管理</a>>><span style="color:#428BCA;"><a>公告编辑</a></span></p>
+		</div>
+		<ul class="list-group">
+  			<li class="list-group-item" style="width:100px;font-family:微软雅黑;float:left;">
+		   	 	公告编辑
+  			</li>
+		</ul>
+	 	<a href="AddBroadcast.html"><button  class="btn btn-primary" style="margin-left:70%;" type="button">发布公告</button></a>
+			<!--主体内容-->
+			<div class="am-g"  style="margin-top:2%;">
+				<div class="am-u-sm-12">
+					<form class="am-form">
+						<table class="am-table  table-main table-bordered">
+							<tbody style="font-family:微软雅黑">
+								<tr>
+									<td>
+										<form class="form-inline" role="form">
+											<div class="form-group">
+												<input type="title" id="broadcastTitle" class="form-control"
+													placeholder="请输入公告标题">
+											</div>
+										</form>
+									</td>
+								</tr>
+								<tr>
+									<td height="300px">
+											<script type="text/plain" id="myEditor" style="width:90%;height:50%;">
+                                                   <div id="broadcastContent"></div>
+                                            </script>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+					<button class="btn btn-primary save2" style="margin-left:75%;margin-top:2%" type="button" onclick="addBroadcast()">保存</button>
+					<button class="btn btn-primary save1" style="margin-left:2%;margin-top:2%" type="button" onclick="cancelBroadcast()" >取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--[if (gte IE 9)|!(IE)]><!-->
+		
+	<!--<![endif]-->
+<script src="../../ueditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor/umeditor.min.js"></script>
+<script type="text/javascript" src="../../ueditor/lang/zh-cn/zh-cn.js"></script>
+<script src="../../static/js/broadcast/AddBroadcast.js"></script>
+<script type="text/javascript">
+var um = UM.getEditor('myEditor');
+</script>
+</body>
+</html>

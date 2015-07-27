@@ -1,0 +1,54 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>日志管理</title>
+  <link href="../../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/style/layout/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../static/jBootstrapPage/jBootsrapPage.css"></script>
+</head>
+<body>
+<div class="am-cf admin-main">
+  <!-- content start -->
+ <div class="admin-content">
+       <div class="page-header" >
+		 		  <p style="font-family:微软雅黑;font-size:16px;">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#428BCA;"><a href="LogManage.html">日志管理</a>>><span style="color:#428BCA;"><a>查看日志</a></span></p>
+		</div>
+		
+	   	<ul class="list-group">
+	  		<li class="list-group-item" style="width:120px;font-family:微软雅黑;float:left;">
+			   	 	日志列表
+	  		</li>
+	  		<li style="width:300px;margin-left:60%;font-family:'微软雅黑';list-style-type:none;" id="endActivityDiv">
+  				<a href="LogManage.html"><button class="btn btn-primary" type="button" >返回</button></a>
+  			</li>
+		</ul>
+
+	  <!--主体内容-->
+	<div class="am-g">
+	    <div class="am-u-sm-12">
+	      <br>
+			<table style="float: left;width:50%;font-family:微软雅黑;height: 140px;margin-left:0%"  class="table table-condensed">
+		      	<tr><td>日志标题</td><td><span id="LogTitle"></span></td></tr>
+		      	<tr><td>日志作者</td><td><span id="LogAuthor"></span></td></tr>
+		      	<tr><td>审核状态</td><td><span id="LogStatus"></span></td></tr>
+	      	</table>
+	      		<table style="float: left;width:50%;font-family:微软雅黑;height: 140px;margin-left:0%"  class="table table-condensed">
+		      	<tr><td>&nbsp;</td><td><span>&nbsp;</span></td></tr>
+		      	<tr><td>是否精品</td><td><div id="LogIsNice"></div></td></tr>
+		      	<tr><td>发表时间</td><td><span id="LogPublishTime"></span></td></tr>
+	      	</table>
+	 	</div>
+	 	<div id="LogContent" style="width:100%;height:auto;margin-top:160px;"></div>
+ 	</div>
+
+ </div>
+
+ 
+
+ </div>  
+<script src="../../static/js/jquery-1.8.2.min.js"></script>
+ <script src="../../static/js/log/LogLook.js"></script>
+ </body>
+</html>

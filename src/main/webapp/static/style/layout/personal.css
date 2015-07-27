@@ -1,0 +1,54 @@
+.middle-left-personal{
+	width:635px;
+	height:auto;
+	float:left;
+ 	margin-left:28px; 
+}
+.personal-info{
+	width:635px;
+	height:280px;
+	margin-top:24px;
+	box-shadow: 0 1px 0 #f2f4f5;
+	background-color:#fcfcfc;
+	border-radius:4px;
+	border: 1px solid #ddd;
+}
+
+.content{
+	width:635px;
+	height:150px;
+	background-color:red;
+}
+.content .userhead{
+	width:120px;
+	height:150px;
+	float:left;
+	background-color:red;
+}
+.content .content-right{
+	width:450px;
+	height:150px;
+	float:left;
+	background-color:grey;
+}
+.user-operation{
+	width:635px;
+	height:45px;
+	background-color:pink;
+}
+.user-nav{
+	width:635px;
+	height:45px;
+	background-color:yellow;
+}
+
+
+.personal-detail{
+	
+}
+.middle-right-personal{
+	width:362px;
+	height:500px;
+	background-color:blue;
+	float:left;
+}

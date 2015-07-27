@@ -1,0 +1,272 @@
+
+.content-minddle .middle-top h2{
+	color:#716F6F;
+	text-align:left;
+	margin-left:32px;
+}
+.classify{
+	text-align:left;
+	margin-left:32px;
+	margin-top:12px;
+}
+.classify li{
+	text-decoration:none;
+	display:inline-block; 
+	font-size:14px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.classify li a{
+	color:#7DCDE8;
+	font-size:14px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.middle-up .activity{
+	width:770px;
+	height:160px;
+	margin-top:25px;
+}
+.middle-up .activity .activity-logo{
+	width:160px;
+	height:160px;
+	float:left;
+	margin-left:32px;
+}
+.middle-up .activity .information{
+	width:350px;
+	height:160px;
+	margin-left:10px;
+	float:left;
+}
+.middle-up .activity .information .activity-name{
+	margin-top:10px;
+	text-align: left;
+	color:#3E90AD;
+	font-size:14px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+	height:40px;
+	width:100%
+	display:block;
+}
+.middle-up .activity .information .activity-name a{
+	color:#3E90AD;
+	font-size:14px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.middle-up .activity .information .detailed-information{
+	width:318px;
+	height:120px;
+}
+.middle-up .activity .information .detailed-information li{
+	text-align: left;
+	font-size:13px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+	/* margin-left:32px; */
+	margin-top:5px;
+}
+.middle-up .activity .share{
+	width:180px;
+	height:20px;
+	float:right;
+	margin-top:145px;
+	margin-right:0px;
+}
+.middle-up .activity .share .shareto{
+	
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.middle-up .activity .share a{
+	margin-left:4px;
+}
+/* 下面是活动详细内容页面的代码 */
+.middle-up #attend{
+	width:600px;
+	height:30px;
+	margin-top:25px;
+	margin-left:260px;
+}
+.middle-up #attend #interst-act{
+	width:130px;
+	height:25px;
+	float:left;
+}
+.middle-up #attend #attend-act{
+	width:130px;
+	height:25px;
+	float:left;
+	margin-left:50px;
+}
+#after-attend{
+	width:130px;
+	height:25px;
+	text-align: center;
+	margin-left:20px;
+}
+.middle-up .detail-activity-img{
+	width: 766px;
+	height: 62px;
+	background-image: url(../images/detail-activity.jpg);
+	background-repeat:no-repeat;	
+	margin-top: 15px;
+	margin-left: 35px;
+}
+.middle-up .detail-activity-content{
+	width: 760px;
+	height: auto;
+	text-align: left;
+	margin-left: 35px;
+	margin-top:-20px;
+	font-family:"\5FAE\8F6F\96C5\9ED1";
+}
+.middle-up .comment{
+	width: 660px;
+	margin-left: 35px;
+}
+ #content .content-left .excellent-organizers{
+	width: 228px;
+	height: 370px;
+	margin-top: 11px;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	border-width: 2px;
+	border-color:#DFDFDF;
+
+}
+#excellent-photo{
+	width:230px;
+	height:228px;
+	text-align:left;
+}
+#excellent-photo .host{
+	display:inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+#excellent-user{
+	width:230px;
+	height:228px;
+	text-align:left;
+	
+}
+
+#excellent-user .host{
+	display:inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+.excellent-host{
+	height:auto;
+	max-height:228px;
+}
+#excellent-host{
+	width:230px;
+	height:228px;
+	text-align:left;
+}
+#excellent-host .host{
+	display:inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+#excellent-personal {
+	width:230px;
+	height:228px;
+	text-align:left;
+}
+#excellent-personal .host{
+	display:inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+#show_content_1{
+	height:170px;
+	overflow:hidden;
+}
+#more{
+	float:right;
+	margin-right:10px;
+}
+#short{
+	float:right;
+	display:none;
+	margin-right:10px;
+}
+.mod{
+	width:100%;
+	height:auto;
+	text-align:left;
+}
+.pic_title{
+	width:300px;
+	height:30px;
+	margin-left:30px;
+	font-family:'微软雅黑';
+	font-size:14px;
+	display:none;
+}
+.detail-photo{
+	margin-left:30px;
+	width:100%;
+	height:auto;
+}
+.detail-photo li{
+	display:inline-block;
+	margin-left:15px;
+}
+.activity_pic_list{
+	width:90%;
+	height:auto;
+	margin-left:30px;
+	margin-top:30px;
+}
+.activity_pic_list .item_pic{
+	float:left;
+	width:170px;
+	height:190px;
+	display:inline-block;
+	margin-left:40px;
+}
+.imgstyle{
+	width:auto;
+	height:auto;
+	max-height:170px;
+	max-width:170px;
+}
+.each_pic{
+	margin-top:0px;
+	width:170px;
+	height:170px;
+	text-align:center;
+}
+.pic_intro{
+	width:90%;
+	height:auto;
+	overflow:hidden;
+	font-family:"微软雅黑";
+	margin-top:20px;
+	text-align:left;
+}
+.pic_intro_detail{
+	width:90%;
+	height:auto;
+	margin-left:30px;
+	font-family:"微软雅黑";
+	margin-top:20px;
+	text-align:left;
+}
+.detail_picture{
+	width:100%;
+	height:auto;
+	
+}
+.pic_nav{
+	width:60%;
+	height:20px;
+	margin:10 auto;
+	font-family:"微软雅黑";
+}
+.pic_img{
+	width:auto;
+	height:auto;
+	max-height:600px;
+	max-width:600px;
+}
