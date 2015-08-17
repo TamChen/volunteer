@@ -1,0 +1,72 @@
+/*一些初始化操作 */
+@charset "utf-8"; 
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+    margin:0;
+    padding:0;
+    margin:0; padding:0;font-style: normal;
+    
+}/* \5B8B\4F53 代表支持宋体 */
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset,img {
+    border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+ol,ul {
+    /* list-style:none; */
+}
+caption,th {
+    text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before,q:after {
+    content:'';
+}
+abbr,acronym { border:0}
+a{text-decoration:none}  
+ol, ul ,li{list-style:none} 
+img {border: 0; vertical-align:middle} 
+body{background:#FFF; text-align:center} 
+.clear{clear:both;height:1px;width:100%; overflow:hidden; margin-top:-1px}
+.red ,.red a{ color:#F00} 
+.lan ,.lan a{ color:#1E51A2} 
+.pd5{ padding-top:5px} 
+.dis{display:block} 
+.undis{display:none} 
+
+      /* Override some defaults */
+      html, body {
+        background-color: #eee;
+      }
+  
+
+      /* Page header tweaks */
+      .page-header {
+        background-color: #f5f5f5;
+        padding: 20px 20px 10px;
+        margin: -20px -20px 20px;
+      }
+
+      /* Styles you shouldn't keep as they are for displaying this base example only */
+      .content .span10,
+      .content .span4 {
+        min-height: 500px;
+      }
+      /* Give a quick and non-cross-browser friendly divider */
+      .content .span4 {
+        margin-left: 0;
+        padding-left: 19px;
+        border-left: 1px solid #eee;
+      }
+
+      .topbar .btn {
+        border: 0;
+      }

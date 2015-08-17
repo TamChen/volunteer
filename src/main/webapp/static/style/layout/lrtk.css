@@ -1,0 +1,21 @@
+/* CSS Document */
+body,ul,li{ padding:0; margin:0;}
+ul,li{ list-style:none;}
+img{ border:none;}
+a{ color:#6cf;}
+a:hover{ color:#84B263;}
+.box{ width:560px; margin:20 auto; position:relative; overflow:hidden; _height:100%;}
+.picbox{ width:560px; height:210px; margin-top:10px;overflow:hidden; position:relative;}
+.piclist{ height:165px;position:absolute; left:0px; top:0px}
+.piclist li{ margin-right:20px; padding:5px; float:left;}
+.swaplist{ position:absolute; left:-3000px; top:0px}
+
+.og_prev{ width:10px;height:10px;z-index:99;background-image: url(../../style/images/turn-left.png);margin-left:460px;}
+.og_next{ width:10px;margin-left:480px;margin-top:-10px;background-image: url(../../style/images/turn-right.png);height:10px;z-index:99;} 
+.control{
+	width:30px;
+	height:10px;
+}
+.act-title-scoll{
+	width:110px;font-family:'微软雅黑';height:40px;overflow:hidden;
+}

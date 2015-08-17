@@ -1,0 +1,75 @@
+	a { color:#213f71; font-size:9pt; text-decoration:none;cursor:pointer;}
+		a:hover {color:#0066cc; }
+		.content-center{
+		margin-left:250px;
+		margin-top:50px;
+		height:850px
+		}
+		.center_top{
+		background: url(img_hrz/center01.jpg);
+		width:762px;
+		height:62px;
+		}
+		.center_buttom{
+		background: url(img_hrz/center02.jpg);
+		margin-top:15px;
+		width:762px;
+		height:50px;
+		}
+		#picture_top{
+		margin-left:30px;
+		width:700px;
+		height:480px;
+		}
+		#picture_buttom{
+		margin-left:30px;
+		width:700px;
+		height:180px;
+		}
+		#changpage_1{
+		float:right;
+		margin-right:50px;
+		}
+		#changpage_2{
+		float:right;
+		margin-right:50px;
+		}
+		#img_div{
+		float:left;
+		margin-top:5px;
+		margin-left:20px;
+		width:210px;
+	    height:150px;
+		}
+		#img_div a{
+		font-size:18px;
+		color:black
+		}
+		
+		#img{
+	
+		width:210px;
+		height:130px;
+		}
+		#changpage_1{
+		font-weight:bold;
+		}
+		 #herf{
+		color:black;
+		text-decoration:none;
+		font-weight:bold;
+		}
+		#changpage_3{
+		font-weight:bold;
+		}
+		#changpage_2{
+		font-weight:bold;
+		}
+		/* #changpage_2 #herf{
+		color:black;
+		text-decoration:none;
+		font-weight:bold;
+		} */
+		#searchResult{
+		min-height:700px;
+		}

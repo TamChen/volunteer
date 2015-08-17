@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>活动管理</title>
+  
+  <link href="../static/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/style/layout/bootstrap.css" rel="stylesheet">
+  <script src="../static/js/jquery-1.8.2.min.js"></script>
+  	<link rel="stylesheet" href="../static/bootstrap/bootstrap-datetimepicker.css" type="text/css"></link>
+	<script type="text/javascript" src="../static/bootstrap/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript" src="../static/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+</head>
+<body>
+<div class="am-cf admin-main">
+  <!-- content start -->
+  <div class="admin-content">
+       	<div class="page-header" >
+		  <p style="font-family:微软雅黑;font-size:16px;">当前位置:&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#428BCA;"><a href="admin.html">管理员信息</a></span></p>
+		</div>
+		<ul class="list-group">
+  			<li class="list-group-item" style="width:120px;font-family:微软雅黑;float:left;">
+		   	 	管理员信息
+  			</li>
+		</ul>
+		
+		<div class="col-md-12"></div>
+     	<table style="float: left;font-family:微软雅黑;margin-left:0%;width: 70%;min-height: 300px;"  class="table table-condensed">
+                                 <tr><td>学号</td><td><span class="userno_set">201258080119</span></td></tr>
+                                 <tr><td>学院</td><td><span class="college_set"></span></td></tr>
+                                 <tr><td>专业</td><td><span class="major_set"></span></td></tr>
+                                <tr><td>性别</td><td><span><input name="sex_set" type="radio" value="1"/>男 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="sex_set" type="radio" value="0"/>女</span></td></tr>
+                                <tr><td>生日</td><td><span>
+                                <input size="16" id="bir_set"  type="text" style="width: 200px;height: 40px" value="2015-03-12"  class="form_enddatetime" required>
+								<script type="text/javascript">
+									$(".form_enddatetime").datetimepicker({ 
+										format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式 
+										language: 'zh-CN', //汉化 
+										autoclose:true //选择日期后自动关闭 
+									});
+								</script> </span></td></tr>
+                                <tr><td>居住地</td><td><span><input class="home_set" type="text" /></span></td></tr>
+                                <tr><td>邮箱</td><td><span><input class="mail_set" type="text" /></span><span ></span></td></tr>
+         </table>
+        <table style="float: left;font-family:微软雅黑;width:20%;min-height: 150px;"  class="table table-condensed">
+                            	<img class="head_set" style="width:180px;height:180px" src="../../volunteer/image/userhead/505.png">
+                            	<div style="width:100%;height:1px;"></div>
+                            	<span><a href="javascript:void(0)" onclick="changeHead()">更改</a></span>
+      </table>
+      <div class="col-md-12"></div>
+      <form style="">
+                           	<input id="submit" style="float:left;margin-top:0px;margin-right:10px;width:60px;height:30px;" class="submit" onclick='cancel()' type="button" value="取消">
+                           	<input id="cancel" style="float:left;margin-top:0px;margin-right:10px;width:60px;height:30px;" class="submit" onclick='updateUserInfo()' type="button" value="修改">
+                         </form>
+</div>
+
+</body>
+</html>
