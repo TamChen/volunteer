@@ -17,6 +17,11 @@ import edu.csust.volunteer.model.Activity;
 import edu.csust.volunteer.model.Info;
 @Repository("baseDao")
 public class BaseDaoImpl<T> implements BaseDao<T> {
+
+/*String sql="update Table set field = 'test'"
+Session session = HibernateSessionFactory.getSession();
+session.createSQLQuery(sql).executeUpdate();
+ts.commit();*/
 	private SessionFactory sessionFactory;
 
 	public SessionFactory getSessionFactory() {
