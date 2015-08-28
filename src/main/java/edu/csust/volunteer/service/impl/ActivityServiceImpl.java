@@ -41,7 +41,7 @@ public class ActivityServiceImpl implements ActivityService {
 		String hql="select title,adminID,pic2,number,attend,interest,id,publishDate,praise from Activity where state=136 and pic2!=''";
 		Object params[]={};
 		List<Object[]> indexPageActivityInfo;
-		List<ActivityVo> activityVoList=new ArrayList<>();
+		List<ActivityVo> activityVoList=new ArrayList<ActivityVo>();
 		indexPageActivityInfo=(List<Object[]>)EhcacheManager.getElementValueFromCache(EhcacheManager.CACHE_ACTIVITYCACHE,"act_index");
 		if (indexPageActivityInfo==null) {
 			indexPageActivityInfo=activityDao.getIndexPageActivityInfo(hql,params);

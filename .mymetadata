@@ -4,7 +4,7 @@
   name="volunteer"
   id="myeclipse.1428296318708"
   context-root="/volunteer"
-  j2ee-spec="1.7"
+  j2ee-spec="6.0"
   archive="volunteer.war">
   <attributes>
     <attribute name="webrootdir" value="src/main/webapp" />

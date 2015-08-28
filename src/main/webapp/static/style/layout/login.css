@@ -163,8 +163,7 @@ h1
 
 {
 
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .7), 0px 2px 0 rgba(0, 0, 0, .5);
-
+    font-family: Microsoft Yahei;
     text-transform: uppercase;
 
     text-align: center;
@@ -175,7 +174,7 @@ h1
 
     letter-spacing: 4px;
 
-    font: normal 26px/1 Verdana, Helvetica;
+    /* font: normal 26px/1 Verdana, Helvetica; */
 
     position: relative;
 
@@ -399,7 +398,7 @@ fieldset
 
 
 
-    float: left;
+     float: left;
 
     height: 35px;
 
@@ -409,9 +408,11 @@ fieldset
 
     cursor: pointer;
 
-    font: bold 8px Arial, Helvetica;
+    font-size:15px;
 
     color: white;
+	
+	font-family: Microsoft Yahei;
 
 }
 

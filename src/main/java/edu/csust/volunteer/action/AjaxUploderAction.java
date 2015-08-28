@@ -52,7 +52,14 @@ public class AjaxUploderAction extends BaseAction<Activity>{
 	public void uploadPic(){
 		String uuid=UUID.randomUUID().toString();
 /*		活动图片,保存的应该是缩略图*/
+		String path= ServletActionContext.getServletContext().getRealPath("/");
 		String savePath= ServletActionContext.getServletContext().getRealPath("/image/activity");
+//		String path=request.getSession().getServletContext().getRealPath("/");
+//		System.out.println(path.substring(0,path.length()-10));        //路径
+//		String savePath=path.substring(0,path.length()-10)+"/image/activity";
+		
+		
+		System.out.println(path);
 		File file = new File(savePath); // 判断文件夹是否存在,如果不存在则创建文件夹
 		if (!file.exists()) file.mkdir();
 		JSONObject jsonData=new JSONObject();

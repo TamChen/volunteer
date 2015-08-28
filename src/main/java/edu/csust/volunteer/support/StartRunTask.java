@@ -1,5 +1,6 @@
 package edu.csust.volunteer.support;
 
+import java.io.File;
 import java.util.Date;
 import java.util.Observable;
 import java.util.Timer;
@@ -40,9 +41,13 @@ public class StartRunTask extends Observable implements ServletContextListener {
 				.getBean("userService");
 		// 启动服务器中所有的定时服务
 		TimerTask task = new SimpleTimerTask();
-		timer.schedule(task, 5000); //
+		timer.schedule(task, 5000,5000); //
 		// 初始化数据库,主要是初始化数据库，例如默认相册
 		initDefaultAlbum(pictureService,userService);
+		String relativelyPath=System.getProperty("user.dir"); 
+		String localPath=relativelyPath.substring(0, relativelyPath.length()-4)+"/webapps/volunteer/image";
+		String serverPath=relativelyPath.substring(0, relativelyPath.length()-4)+"/image";
+		SynchroManager.copy(serverPath, localPath);//从外部同步到本地。
 		System.out.println("初始化数据库中的，默认相册");
 	}
 	// 初始化数据库,主要是初始化数据库，例如默认相册
@@ -75,7 +80,17 @@ public class StartRunTask extends Observable implements ServletContextListener {
 	class SimpleTimerTask extends TimerTask {// ③任务
 		public void run() {
 			System.out.println("执行定时任务");
-			LOGGER.info("执行定时任务，例如定时清理关系等等");
+			LOGGER.info("执行定时任务，例如定时清理关系等等");//同步图片文件
+//			String path=request.getSession().getServletContext().getRealPath("/");
+			String relativelyPath=System.getProperty("user.dir"); 
+			String localPath=relativelyPath.substring(0, relativelyPath.length()-4)+"/webapps/volunteer/image";
+			String serverPath=relativelyPath.substring(0, relativelyPath.length()-4)+"/image";
+			SynchroManager.copy(localPath, serverPath);//从本地同步到外部，防止数据丢失
+//			String localPath= ServletActionContext.getServletContext().getRealPath("/image");
+//			String serverPath= ServletActionContext.getServletContext().getRealPath("/");
+//			serverPath=serverPath.substring(0, serverPath.length()-10)+"/image";
+//			System.out.print(localPath);
+//			System.out.print(serverPath);
 			// try {
 			// MainServer mainServer=new MainServer();
 			// addObserver(serverLisener);

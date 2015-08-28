@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <div class="cover">
-  <img alt="" src="static/style/images/bg.jpg"/>
+  <img alt="" src="static/style/images/bg3.jpg"/>
   </div>
 
   <form id="login" action="userAction!login.action" method="post">
