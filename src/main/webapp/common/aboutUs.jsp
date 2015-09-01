@@ -49,7 +49,7 @@
         <div id="content">
             <div class="content-left">
                 <div class="volunteer-logo"></div>
-                <div class="volunteer-search" style="height:150px;">
+                <div class="volunteer-search" style="height:180px;">
                     <div class="hot-search"></div>
                     <div class="search-key">
                         <a href="">活动文档</a>
@@ -68,27 +68,7 @@
                         </div>
                     </div>
 
-                </div>
-                <div id="rolling_notice">
-                    <div id="rolling_notice_head">
-                        <i id="rolling_notice_head_icon"></i>
-                        <span id="rolling_notice_head_title">滚动文档</span>
-                    </div>
-                    <div style="clear:both"></div>
-                     <div id="rolling_notice_body">
-                        <ul>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-                        </ul>
-                    </div>
-                </div> 
-            </div>
+                </div></div>
 
             <div class="content-minddle">
                     <!--这里是大框-->
@@ -106,31 +86,10 @@
 	                    </div>
                 	--%></div>
                 <!--这里是列表那个div-->
-                <ol class="filelist" style="text-align:left;margin-left:100px;margin-top:100px;">
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ol class="filelist" style="text-align:left;list-style-type:decimal;margin-left:100px;margin-top:100px;">
+                	<li style="list-style-type:circle"><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
-                	<li><a href="">关于举办第三节长沙理工义工活动周的相关文件</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>2015.3.12</span></li>
+                	<li style=>
                 	
                 	
                 	
@@ -153,69 +112,71 @@
         <script type="text/javascript" src="static/js/filecenter.js"></script>
         <script type="text/javascript" src="static/js/jqPaginator.js"></script>
         <script type="text/javascript" src="static/js/head.js"></script>
-<script type="text/javascript">
-window.onload=function()
-{
-    var oDiv=document.getElementById('rolling_notice_body');
-    var oUl=oDiv.getElementsByTagName('ul')[0];
-    var aLi=oUl.getElementsByTagName('li');
-    var speed=4;
-    oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
-    oUl.style.height=aLi[0].offsetHeight*aLi.length+'px';
-    function move(){
-        if (oUl.offsetTop<-oUl.offsetHeight/2) {
-            oUl.style.top='0';
-        }
-        oUl.style.top=oUl.offsetTop-speed+'px';
-    }
-
-    var timer=setInterval(move,35);
-
-    oDiv.onmouseover=function ()
-    {
-        clearInterval(timer);
-    };
-
-    oDiv.onmouseout=function()
-    {
-        timer=setInterval(move,35);
-    };
-};
-</script>
-
-<script type="text/javascript">
-function showLocale(objD)
-{
-    var str,colorhead,colorfoot;
-    var yy = objD.getYear();
-    if(yy<1900) yy = yy+1900;
-    var MM = objD.getMonth()+1;
-    if(MM<10) MM = '0' + MM;
-    var dd = objD.getDate();
-    if(dd<10) dd = '0' + dd;
-    var ww = objD.getDay();
-    if  ( ww==0 )  colorhead="<font color=\"#b5b5b5\">";
-    if  ( ww > 0 && ww < 6 )  colorhead="<font color=\"#b5b5b5\">";
-    if  ( ww==6 )  colorhead="<font color=\"#b5b5b5\">";
-    if  (ww==0)  ww="星期日";
-    if  (ww==1)  ww="星期一";
-    if  (ww==2)  ww="星期二";
-    if  (ww==3)  ww="星期三";
-    if  (ww==4)  ww="星期四";
-    if  (ww==5)  ww="星期五";
-    if  (ww==6)  ww="星期六";
-    colorfoot="</font>"
-    str = colorhead + yy + "年" + MM + "月" + dd +"日"+ "  " + ww + colorfoot;
-    return(str);
-}
-function tick()
-{
-    var today;
-    today = new Date();
-    document.getElementById("Time").innerHTML = showLocale(today);
-    window.setTimeout("tick()", 1000);
-}
-
-</script>   
+		<script type="text/javascript">
+		  	var height=window.screen.height;
+	    	var trueheight=height-420;
+	    	$("#content").css("height",trueheight);
+	    	var pagesize=15;
+	    	var current=1;
+	    	$.ajax({
+	    	   	type:"GET",
+	    	   	dataType:"json",  
+	        	url:'static/info/get'+type+'?current=1&&size='+size,
+	        	success:function(result){
+	        		loadInfo(result,type);
+	                $.ajax({
+	                     type: "GET",
+	                 	 dataType:"json",  
+	                     url: "static/info/getnumber"+type,
+	                     success: function(result){
+	                    	 var total1=result.number;
+	                    	 globalNewsNumber=total1;
+	                    	 $("#Total"+type).text(total1);
+	                 	 createPage(size,(total1/size+1), total1,type);
+	                  }
+	                });
+	                console.log( "消息一成功" );
+	     		}
+	        })
+	        function loadInfo(result,type){
+				$("#tbody"+type).empty();
+				$.each(result.infoList, function(i, item) {
+			        $("#tbody"+type).append(
+			        		" <tr id=tr"+item.id+">"+
+			                 "<td>"+eval(i+1)+"</td>"+
+			                " <td style='max-width:700px;'><a style='color:#333333' href=lookDetail.jsp?id="+item.id+">"+item.name+"</a></td>"   +         
+			                "<td>"+item.keyword+"</td>"+//关键词
+			                "<td>"+item.author+"</td>"+//作者
+			                "<td>"+item.time+"</td>"+//时间
+			                "<td>"+item.typename+"</td>"+//类别
+			                 "<td>"+" <span class='glyphicon glyphicon-edit'></span>" +
+			                  "<span onclick=look("+item.id+") id='look' style='cursor:pointer'>查看</span>"+
+			                  " <span class='glyphicon glyphicon-edit'></span>" +
+			                  "<span onclick=edit("+item.id+") id='edit' style='cursor:pointer'>编辑</span>"+
+			                 "  <span class='glyphicon glyphicon-trash'></span>" +
+			                 "<span onclick=deleteInfo("+item.id+") id='delete' style='cursor:pointer'>删除</span>"+
+			                 "</td>"+
+			               "</tr> "
+			        );
+			    });
+			}
+	    	function createPage(pageSize, buttons, total,type) {
+	    	    $("#"+type).jBootstrapPage({
+	    	        pageSize : pageSize,
+	    	        total : total,
+	    	        maxPageButton:buttons,
+	    	        onPageClicked: function(obj, pageIndex) {
+	    	    	   	$.ajax({
+	    	    		   	type:"GET",
+	    	    		   	dataType:"json",  
+	    	    	    	url:'static/info/get'+type+'?current='+eval(pageIndex+1)+'&&size='+size,
+	    	    	    	success:function(result){
+	    	    	    		loadInfo(result);
+	    	    	 		}
+	    	    	    })
+	    	        }
+	    	    });
+	    	}
+		</script>
   </body>
 </html>

@@ -45,6 +45,12 @@ public class User implements Serializable {
     private boolean outstanding;
     private double star;
 
+    @Column(name = "validataCode", length = 100, nullable = true)
+    private String validataCode;
+    
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "registerDate")
+    private Date registerDate;
 
 	@Column(name = "URESUME", length = 500, nullable = true)
     public String getResume() {
@@ -54,6 +60,24 @@ public class User implements Serializable {
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
+	
+	
+	public String getValidataCode() {
+		return validataCode;
+	}
+
+	public void setValidataCode(String validataCode) {
+		this.validataCode = validataCode;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
 	@Column(name = "USTAR", length = 10, nullable = true)
 	public double getStar() {
 		return star;

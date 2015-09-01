@@ -64,25 +64,26 @@
 	                    </div>
 	
 	                </div>
-	                <div id="rolling_notice">
-	                    <div id="rolling_notice_head">
-	                        <i id="rolling_notice_head_icon"></i>
-	                        <span id="rolling_notice_head_title">滚动通告</span>
-	                    </div>
-	                    <div style="clear:both"></div>
-	                     <div id="rolling_notice_body">
-	                        <ul>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                            <li><a href="#">2014年第三十七批在职名单公示</a></li>
-	                        </ul>
-	                    </div>
-	                </div> 
+	     		<div id="rolling_notice">
+                    <div id="rolling_notice_head">
+                        <i id="rolling_notice_head_icon"></i>
+                        <span id="rolling_notice_head_title">滚动通告</span>
+                    </div>
+                    <div style="clear:both"></div>
+                     <div id="rolling_notice_body">
+                        <ul id="roll_info" style="text-align:left;">
+                          <li id="new1"><a href='#'></a></li>
+                          <li id="new2"><a href='#'></a></li>
+                          <li id="new3"><a href='#'></a></li>
+                          <li id="new4"><a href='#'></a></li>
+                          <li id="new5"><a href='#'></a></li>
+                          <li id="new6"><a href='#'></a></li>
+                          <li id="new7"><a href='#'></a></li>
+                          <li id="new8"><a href='#'></a></li>
+                          <li id="new9"><a href='#'></a></li>
+                        </ul>
+                    </div>
+                </div> 
 	            </div>
 	
 	            <div class="content-minddle">
@@ -108,14 +109,14 @@
 	                    
 	                   
 	                </div>
-	            </div>
+	            </div><%--
 	             <div id="new_content_next">
 	                        <ul>
 	                            <li>上一篇：<a href="#">江西省举行座谈会纪念</a></li>
 	                            <li>下一篇：<a href="#">发展改革委颁布抽水蓄</a></li>
 	                        </ul>
 	             </div>
-	        </div>
+	        --%></div>
 	      <jsp:include  page="../foot.jsp"/>
 	<input id="userno" type="hidden" value=<%=session.getAttribute("userno")%>>
 	        <!--scripts-->
@@ -133,6 +134,9 @@
 	    var oUl=oDiv.getElementsByTagName('ul')[0];
 	    var aLi=oUl.getElementsByTagName('li');
 	    var speed=4;
+	   
+	    	
+	    
 	    oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
 	    oUl.style.height=aLi[0].offsetHeight*aLi.length+'px';
 	    function move(){
@@ -181,14 +185,7 @@
 	    str = colorhead + yy + "年" + MM + "月" + dd +"日"+ "  " + ww + colorfoot;
 	    return(str);
 	}
-	function tick()
-	{
-	    var today;
-	    today = new Date();
-	    document.getElementById("Time").innerHTML = showLocale(today);
-	    window.setTimeout("tick()", 1000);
-	}
-	tick();
+
 	</script>
   </body>
 </html>

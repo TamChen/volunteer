@@ -23,7 +23,7 @@ $(function(){
     				$("#new"+eval(i+1)).html("<a href='news/new-detail.jsp?infoid="+item.uuid+"'>"+item.title+"</a>");
     			 });
     		}
-    	   
+    	
  		}
     });
 	

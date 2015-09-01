@@ -40,7 +40,10 @@
             	/static/** = anon
                 /login.jsp = anon  
                 /userAction!login.action*=anon
-                /news/new-list.html=authc
+				/forget.jsp =anon
+				/userAction!forgetPass.action*=anon
+				/userAction!checkResetLink.action*=anon
+				/reset.jsp*=anon
                 /**=authc
             </value>  
         </property>  

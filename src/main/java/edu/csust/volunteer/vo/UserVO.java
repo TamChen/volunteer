@@ -15,13 +15,27 @@ public class UserVO {
 	private String userTel;
 	private String userMail;
 	private String userAddress;
-	
+	private Date registerDate;
+	private String validataCode;
 	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+	public String getValidataCode() {
+		return validataCode;
+	}
+	public void setValidataCode(String validataCode) {
+		this.validataCode = validataCode;
 	}
 	public String getUserName() {
 		return userName;

@@ -12,7 +12,8 @@ import edu.csust.volunteer.model.User;
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	@Override
 	public boolean isUserNoExists(String userno) {
-		Object params[]={userno};
+		//先检查用户是否存在
+		
 		return true;
 	}
 	@Override

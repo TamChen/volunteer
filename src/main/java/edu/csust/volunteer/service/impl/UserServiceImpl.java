@@ -34,7 +34,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Boolean isUserNoExists(String userNo) {
-		return userDao.isUserNoExists(userNo);
+		//根据学号找到该人的姓名
+	    String hql="from User where userno = ?";
+	    Object params[]={userNo};
+	    if(userDao.load(hql,params)!=null){
+	    	return true;
+	    }
+	    return false;
 	}
 
 	@Override

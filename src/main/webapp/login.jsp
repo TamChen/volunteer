@@ -63,13 +63,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <input type="submit" id="submit"  value="登  录"/>
 
-        <a href="">忘记密码?</a>
+        <a href="forget.jsp">忘记密码?</a>
 
     </fieldset>
 
 </form>
 <!-- BSA AdPacks code -->
-
+	<input id="message" type="hidden" value=<%=session.getAttribute("message")%>>
 	<script src="static/js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript">
+		var message=$("#message").val();
+		if(message!="null"){
+			alert(message);
+		}
+	</script>
   </body>
 </html>
