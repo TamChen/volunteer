@@ -11,11 +11,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import edu.csust.remote.support.EnableQueryCache;
+import edu.csust.volunteer.support.EnableQueryCache;
 
 @Entity
 @Table(name = "t_download")
 @EnableQueryCache
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Download implements Serializable{
 	@Id  //id自增
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
@@ -24,12 +25,6 @@ public class Download implements Serializable{
 	
 	@Column(name = "name", length = 200, nullable = true)
 	private String name;
-	
-	@Column(name = "type", length = 4, nullable = true)
-	private int type;
-	
-	@Column(name = "typename", length = 30, nullable = true)
-	private String typename;
 	
 	@Column(name = "path", length = 200, nullable = true)
 	private String path;
@@ -44,12 +39,7 @@ public class Download implements Serializable{
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getTypename() {
-		return typename;
-	}
-	public void setTypename(String typename) {
-		this.typename = typename;
-	}
+	
 	public int getId() {
 		return id;
 	}
@@ -57,22 +47,12 @@ public class Download implements Serializable{
 		this.id = id;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	public int getType() {
-		return type;
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-	
 	
 	public String getPath() {
 		return path;

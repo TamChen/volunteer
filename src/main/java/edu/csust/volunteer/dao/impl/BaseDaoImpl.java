@@ -144,6 +144,29 @@ ts.commit();*/
 		List<String> list = query.list();
 		return list;
 	}
+	//分页查询活动
+	@Override
+	public List<T> findListWhitoutParam(String hql,int currentpage,int perPage){
+		int start=(currentpage-1)*perPage;
+		Query query = getSession().createQuery(hql);
+		query.setFirstResult(start);
+		query.setMaxResults(perPage);
+		query.setCacheable(true);
+		@SuppressWarnings("unchecked")
+		List<T> list = query.list();
+		return list;
+	}
+	public List<T> findListByParamAndPage(String hql,int currentpage,int perPage,Object[] params){
+		int start=(currentpage-1)*perPage;
+		Query query = getSession().createQuery(hql);
+		setObjectParams(query, params);
+		query.setFirstResult(start);
+		query.setMaxResults(perPage);//每页数据为4个
+		query.setCacheable(true);
+		@SuppressWarnings("unchecked")
+		List<T> list = query.list();
+		return list;
+	}
 	//查询多个字段,这里是前台活动
 	public List<Object[]> findMutiCol(String hql){
 		Query query = getSession().createQuery(hql);

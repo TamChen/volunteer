@@ -2,7 +2,8 @@ package edu.csust.volunteer.dao;
 
 import java.util.List;
 
-import edu.csust.remote.entity.Download;
+import edu.csust.volunteer.model.Download;
+
 
 public interface IdownLoadDao {
 

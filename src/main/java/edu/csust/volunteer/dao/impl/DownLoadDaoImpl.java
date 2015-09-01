@@ -6,13 +6,13 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.csust.remote.dao.IdownLoadDao;
-import edu.csust.remote.entity.Download;
-import edu.csust.remote.entity.Info;
+import edu.csust.volunteer.dao.IdownLoadDao;
+import edu.csust.volunteer.dao.LogDao;
+import edu.csust.volunteer.model.Download;
+import edu.csust.volunteer.model.UserDiary;
 @Repository("IdownLoadDao")
 @Transactional
 public class DownLoadDaoImpl extends BaseDaoImpl<Download> implements IdownLoadDao {
-
 	@Override
 	public List<Download> getDownloadInfos(String hql, int current, int number,
 			Object[] params) {

@@ -42,4 +42,5 @@ public interface BaseDao<T> {
 
 	List<T> splitpageList(String hql, int currentpage, int perPage);
 
+	List<T> findListWhitoutParam(String hql, int currentpage, int perPage);
 }

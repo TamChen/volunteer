@@ -6,12 +6,12 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.csust.remote.dao.BaseDao;
-import edu.csust.remote.dao.IdownLoadDao;
-import edu.csust.remote.entity.Download;
-import edu.csust.remote.entity.Info;
-import edu.csust.remote.service.IdownLoadService;
-import edu.csust.remote.service.ItypeService;
+import edu.csust.volunteer.dao.BaseDao;
+import edu.csust.volunteer.dao.IdownLoadDao;
+import edu.csust.volunteer.model.Download;
+import edu.csust.volunteer.service.IdownLoadService;
+
+
 @Service("IdownLoadService")
 public class DownLoadServiceImpl implements IdownLoadService {
 
@@ -19,15 +19,11 @@ public class DownLoadServiceImpl implements IdownLoadService {
 	private BaseDao<Download> baseDao;
 	@Autowired
 	private IdownLoadDao downloadDao;
-	@Autowired
-	private ItypeService typeSercice;
 	@Override
-	public List<Download> getLastSevenInfo(int typeno,int current,int size) {
-		String hql="";
-		if (typeno==0) hql="from Download order by id desc";
-		else hql="from Download where type=?";
+	public List<Download> getLastSevenInfo(int current,int size) {
+		String hql="from Download order by id desc";
 		int number=size;
-		Object params[]={typeno};
+		Object params[]={};
 		List<Download> infos=downloadDao.getDownloadInfos(hql,current,number,params);
 		return infos;
 	}
@@ -42,19 +38,18 @@ public class DownLoadServiceImpl implements IdownLoadService {
 	
 	@Override
 	//获得下载内容的条数
-	public Integer getNumber(int i) {
-		String hql="select count(*) from Download where type= "+i+" ";
+	public Integer getNumber() {
+		String hql="select count(*) from Download";
 		Long number=baseDao.getCount(hql);
 		return number.intValue();
 	}
 	/*上传的路径*/
 	@Override
 	public boolean updateDownloadInfo(int id, String name, int type) {
-		String typename=typeSercice.getTypeNameByTypeNo(type);	
 		DateTime now = new DateTime();// 取得当前时间  
     	String time = now.toString("yyyy/MM/dd");
 		String hql="update Download w set w.name =? , w.type=? , w.typename=? ,w.time=? where w.id = ?";
-		Object params[]={name,type,typename,time,id};
+		Object params[]={name,time,id};
 		baseDao.executeByHql(hql, params);
 		return true;
 	}
@@ -64,8 +59,6 @@ public class DownLoadServiceImpl implements IdownLoadService {
 		download.setName(fileName);
 		download.setPath(path);//主要是查看path的路径变化，有没有带文件名
 		download.setTime(time);
-		download.setType(type);
-		download.setTypename(typeSercice.getTypeNameByTypeNo(type));
 		baseDao.save(download);
 	}
 	@Override

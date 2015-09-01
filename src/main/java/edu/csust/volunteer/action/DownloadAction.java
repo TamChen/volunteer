@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.convention.annotation.Action;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,99 +23,41 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.alibaba.fastjson.JSONObject;
 
-import edu.csust.remote.base.BaseControllers;
-import edu.csust.remote.entity.Download;
-import edu.csust.remote.service.IdownLoadService;
-import edu.csust.remote.util.FileOperateUtil;
+import edu.csust.volunteer.model.Download;
+import edu.csust.volunteer.model.UserDiary;
+import edu.csust.volunteer.service.IdownLoadService;
+import edu.csust.volunteer.util.FileOperateUtil;
 
-@RestController
-@RequestMapping("/static")
-public class DownloadController extends BaseControllers{
+@Action("downloadAction") 
+public class DownloadAction extends BaseAction<Download>{
 	
 	@Autowired
 	private IdownLoadService downloadService;
-	
-	/*  获取前台info List，总共七条*/
-    @RequestMapping(value = "/download/downloadinfo", method = RequestMethod.GET)
-    public void getLastInfo(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+
+    /*获取下载的条数*/
+    public void getNumber() throws Exception {
     	JSONObject jsonData=new JSONObject();
-    	List<Download> infoList=downloadService.getLastSevenInfo(0,0,7);
-		jsonData.put("infoList", infoList);
-		writerJson(response, jsonData);
+		jsonData.put("number",downloadService.getNumber());
+		writeJson(jsonData);
+		
     }
 
-    /*获取总共有多少条，三种下载内容*/
-    @RequestMapping(value = "/download/getnumberone", method = RequestMethod.GET)
-    public void getNumber1(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-    	JSONObject jsonData=new JSONObject();
-		jsonData.put("number",downloadService.getNumber(4));
-		writerJson(response, jsonData);
-    }
-    @RequestMapping(value = "/download/getnumbertwo", method = RequestMethod.GET)
-    public void getNumber2(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-    	JSONObject jsonData=new JSONObject();
-    	jsonData.put("number",downloadService.getNumber(5));
-		writerJson(response, jsonData);
-		writerJson(response, jsonData);
-    }
-    @RequestMapping(value = "/download/getnumberthree", method = RequestMethod.GET)
-    public void getNumber3(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-    	JSONObject jsonData=new JSONObject();
-    	jsonData.put("number",downloadService.getNumber(6));
-		writerJson(response, jsonData);
-    }
-//    获取前台info List，类型一，每次多加载7条
-    @RequestMapping(value = "/download/getone", method = RequestMethod.GET)
-    public void getTypeOneInfo(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-    	JSONObject jsonData=new JSONObject();
+    /*获取前台前台分页*/
+    public void getTypeThreeInfo() throws Exception {
     	String currentString = request.getParameter("current");
-    	int typeno=4,current=Integer.parseInt(currentString);
-    	String sizeString = request.getParameter("size");
-    	int size=Integer.parseInt(sizeString);
-    	List<Download> infoList=downloadService.getLastSevenInfo(typeno,current,size);
-		jsonData.put("infoList", infoList);
-		writerJson(response, jsonData);
-    }
-    
-   /* 获取前台info List，类型二*/
-    @RequestMapping(value = "/download/gettwo", method = RequestMethod.GET)
-    public void getTypeTwoInfo(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-    	String currentString = request.getParameter("current");
-    	int typeno=5,current=Integer.parseInt(currentString);
+    	int current=Integer.parseInt(currentString);
     	String sizeString = request.getParameter("size");
     	int size=Integer.parseInt(sizeString);
     	JSONObject jsonData=new JSONObject();
-    	List<Download> infoList=downloadService.getLastSevenInfo(typeno,current,size);
-		jsonData.put("infoList", infoList);
-		writerJson(response, jsonData);
-    }
-    
-    /*获取前台info List，类型三*/
-    @RequestMapping(value = "/download/getthree", method = RequestMethod.GET)
-    public void getTypeThreeInfo(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-    	String currentString = request.getParameter("current");
-    	int typeno=6,current=Integer.parseInt(currentString);
-    	String sizeString = request.getParameter("size");
-    	int size=Integer.parseInt(sizeString);
-    	JSONObject jsonData=new JSONObject();
-    	List<Download> infoList=downloadService.getLastSevenInfo(typeno,current,size);
+    	List<Download> infoList=downloadService.getLastSevenInfo(current,size);
     	System.out.println("hello"+infoList.size());
 		jsonData.put("infoList", infoList);
-		writerJson(response, jsonData);
+		writeJson(jsonData);
     }
     //========================================================================================================
     
     /*删除文件*/
-    @RequestMapping(value = "/download/delete", method = RequestMethod.GET)
-    public void delete(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+    public void delete() throws Exception {
     	String idString = request.getParameter("id");
     	int id=Integer.parseInt(idString);
     	JSONObject jsonData=new JSONObject();
@@ -127,12 +70,10 @@ public class DownloadController extends BaseControllers{
 			System.out.println("文件未找到");
 			jsonData.put("success",false);
 		}
-		writerJson(response, jsonData);
+        writeJson(jsonData);
     }
     /* 更新文件信息*/
-    @RequestMapping(value = "/download/update", method = RequestMethod.GET)
-    public void update(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+    public void update() throws Exception {
     	String idString = request.getParameter("id");
     	int id=Integer.parseInt(idString);
     	int type=Integer.parseInt(request.getParameter("type"));
@@ -142,12 +83,11 @@ public class DownloadController extends BaseControllers{
         boolean success=downloadService.updateDownloadInfo(id,name,type);//删除数据库中的数据
         FileOperateUtil.deleteFile(downloadfFileName);//删除文件
         jsonData.put("success",success);
-		writerJson(response, jsonData);
+        writeJson(jsonData);
     }
     
     /*通过设置响应的头消息来实现文件的下载功能。*/
-	@RequestMapping(value="/download")
-	public void download(HttpServletRequest request, HttpServletResponse response){
+	public void download(){
 	    init(request);
 	    try {
 	         int no = Integer.parseInt(request.getParameter("fileno"));
@@ -163,8 +103,7 @@ public class DownloadController extends BaseControllers{
 	     }
 	 }
 	 /*上传文件。*/
-	@RequestMapping(value="upload", method = RequestMethod.POST)
-    public void upload(HttpServletRequest request){
+    public void upload(){
         init(request);
         try {
         	/*上传文件有文件类型*/  /*type*/
