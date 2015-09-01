@@ -130,10 +130,8 @@ public class DownloadAction extends BaseAction<Download>{
                 	int type=Integer.parseInt(request.getParameter("type"));
                 	downloadService.savaDownloadInfo(type,path[1],fileName,time);
                     FileOperateUtil.write(mFile.getInputStream(), new FileOutputStream(path[0]));
-                    
                 }
             }
-            
         } catch (Exception e) {
             e.printStackTrace();
         }
