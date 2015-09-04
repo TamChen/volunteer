@@ -19,7 +19,7 @@ function deleteInfo(id){
 	    $.ajax({
 	        type: "GET",
 	        dataType:"json",
-	        url: "download!delete.action?id="+id,
+	        url: "../../download!delete.action?id="+id,
 	        success: function(result){
 	        	if(result.success==true){
 	        		$("#tr"+id).remove();
@@ -37,13 +37,13 @@ function initInfo(){
 	$.ajax({
 	   	type:"GET",
 	   	dataType:"json",  
-    	url:'downloadAction!getInfo.action?current=1&&size='+size,
+    	url:'../../downloadAction!getInfo.action?current=1&&size='+size,
     	success:function(result){
     		loadInfo(result);
             $.ajax({
                  type: "GET",
              	 dataType:"json",  
-             	 url: "downloadAction!getNumber.action",
+             	 url: "../../downloadAction!getNumber.action",
                  success: function(result){
                 	 var total1=result.number;
                 	 globalNewsNumber=total1;
@@ -74,8 +74,8 @@ function loadInfo(result){
     });
     
 }
-function createPage(pageSize, buttons, total,type) {
-    $("#").jBootstrapPage({
+function createPage(pageSize, buttons, total) {
+    $(".pagination").jBootstrapPage({
         pageSize : pageSize,
         total : total,
         maxPageButton:buttons,
@@ -83,7 +83,7 @@ function createPage(pageSize, buttons, total,type) {
     	   	$.ajax({
     		   	type:"GET",
     		   	dataType:"json",  
-    		   	url:'downloadAction!getInfo.action?current='+eval(pageIndex+1)+'&&size='+size,
+    		   	url:'../../downloadAction!getInfo.action?current='+eval(pageIndex+1)+'&&size='+size,
     	    	success:function(result){
     	    		loadInfo(result);
     	 		}

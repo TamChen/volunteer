@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	          </ul>
 	           <ul class="nav nav-sidebar">
 	            <li class="active"><a>文档管理</a></li>
-	            <li><a href="file/fileManage.html" target="show">文档管理</a></li>
+	            <li><a href="backend/file/fileManage.html" target="show">文档管理</a></li>
 	          </ul>
 	          <ul class="nav nav-sidebar">
 	            <li class="active"><a>用户管理</a></li>
