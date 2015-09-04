@@ -43,7 +43,7 @@ public class DownloadAction extends BaseAction<Download>{
     }
 
     /*获取前台前台分页*/
-    public void getTypeThreeInfo() throws Exception {
+    public void getInfo() throws Exception {
     	String currentString = request.getParameter("current");
     	int current=Integer.parseInt(currentString);
     	String sizeString = request.getParameter("size");

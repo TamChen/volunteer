@@ -17,11 +17,7 @@ public class DownLoadDaoImpl extends BaseDaoImpl<Download> implements IdownLoadD
 	public List<Download> getDownloadInfos(String hql, int current, int number,
 			Object[] params) {
 		List<Download> infos=new ArrayList<Download>();
-		if(params[0].equals(0)){
-			infos=findListWhitoutParam(hql,current,number);
-		}else {
-			infos=findListByParamAndPage(hql,current,number,params);
-		}
+		infos=findListWhitoutParam(hql,current,number);
 		return infos;
 	}
 
