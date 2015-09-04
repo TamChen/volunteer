@@ -10,9 +10,9 @@ public interface IdownLoadService {
 
 	Integer getNumber();
 
-	boolean updateDownloadInfo(int id, String name, int type);
+	boolean updateDownloadInfo(int id, String name);
 
-	void savaDownloadInfo(int type, String path, String fileName, String time);
+	void savaDownloadInfo(String path, String fileName, String time);
 
 	String getDownLoadInfoById(int no);
 

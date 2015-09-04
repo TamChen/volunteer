@@ -45,16 +45,16 @@ public class DownLoadServiceImpl implements IdownLoadService {
 	}
 	/*上传的路径*/
 	@Override
-	public boolean updateDownloadInfo(int id, String name, int type) {
+	public boolean updateDownloadInfo(int id, String name) {
 		DateTime now = new DateTime();// 取得当前时间  
     	String time = now.toString("yyyy/MM/dd");
-		String hql="update Download w set w.name =? , w.type=? , w.typename=? ,w.time=? where w.id = ?";
+		String hql="update Download w set w.name =? ,w.time=? where w.id = ?";
 		Object params[]={name,time,id};
 		baseDao.executeByHql(hql, params);
 		return true;
 	}
 	@Override
-	public void savaDownloadInfo(int type, String path, String fileName,String time) {
+	public void savaDownloadInfo(String path, String fileName,String time) {
 		Download download=new Download();
 		download.setName(fileName);
 		download.setPath(path);//主要是查看path的路径变化，有没有带文件名

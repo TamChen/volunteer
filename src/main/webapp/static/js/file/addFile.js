@@ -25,17 +25,17 @@ function getAjaxData(files,i){
 	// 实例化一个AJAX对象
 	var request = new XMLHttpRequest();
 	// 发送表单数据
-	request.open("POST", "../../download!upload.action?title="+title, true);
+	request.open("POST", "../../downloadAction!upload.action?title="+title, true);
 	// 请求完成时建立一个处理程序。
 	request.onload = function () {
 		/*console.log(request.responseText);*/
 		/*var jsonObj = JSON.parse(request.responseText);*/
 	/*	loadUploadPic(jsonObj);*/
 		if (request.status == 200) {
+			alert("文件上传成功！");
 			window.location = "fileManage.html";
 			/*console.log(request.responseText);*/
 		    // File(s) uploaded.
-			alert(type);
 		} else {
 		    alert('上传错误!');
 		}

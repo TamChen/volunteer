@@ -147,7 +147,7 @@
 				$.each(result.infoList, function(i, item) {
 					array[i]=
 						"<li>"+
-                			"<a href=''>"+item.name+"("+item.time+")</a>"+
+                			"<a href='downloadAction!download.action?fileno="+item.id+"'>"+item.name+"("+item.time+")</a>"+
                 		"</li>";		
 				});
 				$("#filelist").html(array.join(''));

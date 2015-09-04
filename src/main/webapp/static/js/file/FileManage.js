@@ -11,7 +11,7 @@ $(function(){
 }
 */
 function edit(id){
-	window.location = "editFile.html";
+	window.location = "editFile.html?id="+id;
 }
 //删除文件
 function deleteInfo(id){
@@ -19,7 +19,7 @@ function deleteInfo(id){
 	    $.ajax({
 	        type: "GET",
 	        dataType:"json",
-	        url: "../../download!delete.action?id="+id,
+	        url: "../../downloadAction!delete.action?id="+id,
 	        success: function(result){
 	        	if(result.success==true){
 	        		$("#tr"+id).remove();
@@ -62,7 +62,7 @@ function loadInfo(result){
         $("#tbody").append(
         		" <tr id=tr"+item.id+">"+
                  "<td>"+eval(i+1)+"</td>"+
-                " <td style='max-width:700px;'><a style='color:#333333' href='static/download?fileno="+item.id+"'>"+item.name+"</a></td>"   +         
+                " <td style='max-width:700px;'><a style='color:#333333' href='downloadAction!download.action?fileno="+item.id+"'>"+item.name+"</a></td>"   +         
                 "<td>"+item.time+"</td>"+//时间
                  "<td>"+" <span class='glyphicon glyphicon-edit'></span>" +
                   "<span onclick=edit("+item.id+") id='edit' style='cursor:pointer'>编辑</span>"+

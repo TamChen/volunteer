@@ -1,6 +1,9 @@
 package edu.csust.volunteer.action;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
@@ -33,8 +36,10 @@ public class DownloadAction extends BaseAction<Download>{
 	
 	@Autowired
 	private IdownLoadService downloadService;
+	private File uploadFile;
+	private String filename;
 
-    /*获取下载的条数*/
+	/*获取下载的条数*/
     public void getNumber() throws Exception {
     	JSONObject jsonData=new JSONObject();
 		jsonData.put("number",downloadService.getNumber());
@@ -76,12 +81,10 @@ public class DownloadAction extends BaseAction<Download>{
     public void update() throws Exception {
     	String idString = request.getParameter("id");
     	int id=Integer.parseInt(idString);
-    	int type=Integer.parseInt(request.getParameter("type"));
     	JSONObject jsonData=new JSONObject();
     	String downloadfFileName = request.getParameter("name");
     	String name = new String(downloadfFileName.getBytes("iso-8859-1"),"utf-8");
-        boolean success=downloadService.updateDownloadInfo(id,name,type);//删除数据库中的数据
-        FileOperateUtil.deleteFile(downloadfFileName);//删除文件
+        boolean success=downloadService.updateDownloadInfo(id,name);//删除数据库中的数据
         jsonData.put("success",success);
         writeJson(jsonData);
     }
@@ -104,42 +107,47 @@ public class DownloadAction extends BaseAction<Download>{
 	 }
 	 /*上传文件。*/
     public void upload(){
+    	JSONObject jsonData=new JSONObject(); 
+    	boolean success=true;
         init(request);
         try {
         	/*上传文件有文件类型*/  /*type*/
         	/*	将HttpServletRequest对象强制转换为MultipartRequest类型，然后通过MultipartRequest.getFileMap()得到Map<String, MultipartFile>，然后分别保存每个提交的文件*/
 //        	 File[] files = new File(FileOperateUtil.FILEDIR).listFiles();
-        	MultipartHttpServletRequest mRequest = (MultipartHttpServletRequest) request;
-            Map<String, MultipartFile> fileMap = mRequest.getFileMap();       
             File file = new File(FileOperateUtil.FILEDIR);
             if (!file.exists()) {
                 file.mkdir();
             }
-            Iterator<Map.Entry<String, MultipartFile>> it = fileMap.entrySet().iterator();
-            while(it.hasNext()){
-                Map.Entry<String, MultipartFile> entry = it.next();
-                MultipartFile mFile = entry.getValue();
-                if(mFile.getSize() != 0 && !"".equals(mFile.getName())){
-                	String orginalFileName=mFile.getOriginalFilename();
-                	String tmpName = orginalFileName.substring(orginalFileName.lastIndexOf(".") + 1,orginalFileName.length()); //获得扩展名
-                	String fileName=request.getParameter("title");
-                	fileName = new String(fileName.getBytes("iso-8859-1"),"utf-8");//当有乱码时fastjson会出现错误
-                	String path[]=initFilePath(fileName+"."+tmpName);
-                	DateTime now = new DateTime();// 取得当前时间  
+    			String uploadName=getFilename().toString();
+    			String tmpName = uploadName.substring(uploadName.lastIndexOf(".") + 1,uploadName.length()); //获得扩展名
+    			String fileName=request.getParameter("title");
+            	fileName = new String(fileName.getBytes("iso-8859-1"),"utf-8");//当有乱码时fastjson会出现错误
+            	String path[]=initFilePath(fileName+"."+tmpName);
+    			try {
+    				// 以上传文件建立一个文件上传流
+    				DateTime now = new DateTime();// 取得当前时间  
                 	String time = now.toString("yyyy/MM/dd");
-                	int type=Integer.parseInt(request.getParameter("type"));
-                	downloadService.savaDownloadInfo(type,path[1],fileName,time);
-                    FileOperateUtil.write(mFile.getInputStream(), new FileOutputStream(path[0]));
-                }
-            }
+                	downloadService.savaDownloadInfo(path[1],fileName,time);
+                	//输入流    path[0]为输出路径
+                	FileOperateUtil.write(new FileInputStream(getUploadFile()), new FileOutputStream(path[0]));
+    			} catch (FileNotFoundException e) {
+    				success=false;
+    				e.printStackTrace();
+    			} catch (IOException e) {
+    				success=false;
+    				e.printStackTrace();
+    			}
         } catch (Exception e) {
             e.printStackTrace();
         }
+        jsonData.put("success", success);
+		writeJson(jsonData);
     }
 	 private void init(HttpServletRequest request) {
 	     if(FileOperateUtil.FILEDIR == null){
 	    	String path=request.getSession().getServletContext().getRealPath("/");
-	        FileOperateUtil.FILEDIR = path.substring(0, path.length()-7) + "file/";
+	    	System.out.println(path);
+	        FileOperateUtil.FILEDIR = path.substring(0, path.length()-18) + "volunteerfile/";
 	     }
 	 }
 	 private static String[] initFilePath(String name) {
@@ -159,4 +167,21 @@ public class DownloadAction extends BaseAction<Download>{
 	 private static int getFileDir(String name) {
 	        return name.hashCode() & 0xf;
 	    }
+	 
+	 public File getUploadFile() {
+			return uploadFile;
+		}
+
+		public void setUploadFile(File uploadFile) {
+			this.uploadFile = uploadFile;
+		}
+
+		public String getFilename() {
+			return filename;
+		}
+
+		public void setFilename(String filename) {
+			this.filename = filename;
+		}
+
 }
