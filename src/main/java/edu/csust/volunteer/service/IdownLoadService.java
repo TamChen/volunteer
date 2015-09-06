@@ -14,7 +14,7 @@ public interface IdownLoadService {
 
 	void savaDownloadInfo(String path, String fileName, String time);
 
-	String getDownLoadInfoById(int no);
+	Download getDownLoadInfoById(int no);
 
 	List<Download> getLastSevenInfo(int current, int size);
 

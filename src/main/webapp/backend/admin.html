@@ -31,16 +31,7 @@
                                  <tr><td>学院</td><td><span class="college_set"></span></td></tr>
                                  <tr><td>专业</td><td><span class="major_set"></span></td></tr>
                                 <tr><td>性别</td><td><span><input name="sex_set" type="radio" value="1"/>男 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="sex_set" type="radio" value="0"/>女</span></td></tr>
-                                <tr><td>生日</td><td><span>
-                                <input size="16" id="bir_set"  type="text" style="width: 200px;height: 40px" value="2015-03-12"  class="form_enddatetime" required>
-								<script type="text/javascript">
-									$(".form_enddatetime").datetimepicker({ 
-										format: "yyyy-mm-dd", //选择日期后，文本框显示的日期格式 
-										language: 'zh-CN', //汉化 
-										autoclose:true //选择日期后自动关闭 
-									});
-								</script> </span></td></tr>
-                                <tr><td>居住地</td><td><span><input class="home_set" type="text" /></span></td></tr>
+                               
                                 <tr><td>邮箱</td><td><span><input class="mail_set" type="text" /></span><span ></span></td></tr>
          </table>
         <table style="float: left;font-family:微软雅黑;width:20%;min-height: 150px;"  class="table table-condensed">
@@ -54,6 +45,6 @@
                            	<input id="cancel" style="float:left;margin-top:0px;margin-right:10px;width:60px;height:30px;" class="submit" onclick='updateUserInfo()' type="button" value="修改">
                          </form>
 </div>
-
+		<script type="text/javascript" src="../static/js/adminInfo.js"></script>
 </body>
 </html>

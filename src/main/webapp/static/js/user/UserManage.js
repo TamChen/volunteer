@@ -55,7 +55,8 @@ function editUserDetail(id){
 }
 
 function lockUser(id){
-	if(window.confirm('确认锁定该用户，该用户将不能登陆！')){
+	alert("该功能正在完善！");
+	/*if(window.confirm('确认锁定该用户，该用户将不能登陆！')){
 	    $.ajax({
 	        type: "POST",
 	        dataType:"json",
@@ -70,7 +71,7 @@ function lockUser(id){
 	    });
 	}else{
 		
-	}
+	}*/
 	
 }
 

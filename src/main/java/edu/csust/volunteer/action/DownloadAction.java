@@ -66,7 +66,7 @@ public class DownloadAction extends BaseAction<Download>{
     	String idString = request.getParameter("id");
     	int id=Integer.parseInt(idString);
     	JSONObject jsonData=new JSONObject();
-    	String downloadfFileName=downloadService.getDownLoadInfoById(id);
+    	String downloadfFileName=downloadService.getDownLoadInfoById(id).getPath();
         boolean success=downloadService.deleteInfoById(id);//删除数据库中的数据
         try {
         	FileOperateUtil.deleteFile(downloadfFileName);//删除文件
@@ -84,6 +84,7 @@ public class DownloadAction extends BaseAction<Download>{
     	JSONObject jsonData=new JSONObject();
     	String downloadfFileName = request.getParameter("name");
     	String name = new String(downloadfFileName.getBytes("iso-8859-1"),"utf-8");
+//    	FileOperateUtil.write(new FileInputStream(getUploadFile()), new FileOutputStream(path[0]));
         boolean success=downloadService.updateDownloadInfo(id,name);//删除数据库中的数据
         jsonData.put("success",success);
         writeJson(jsonData);
@@ -94,8 +95,12 @@ public class DownloadAction extends BaseAction<Download>{
 	    init(request);
 	    try {
 	         int no = Integer.parseInt(request.getParameter("fileno"));
-	         String downloadfFileName=downloadService.getDownLoadInfoById(no);
-	         String fileName = downloadfFileName.substring(downloadfFileName.indexOf("_")+1);
+	         Download download=downloadService.getDownLoadInfoById(no);
+	         String downloadfFileName=download.getPath();
+	         String tmpName = downloadfFileName.substring(downloadfFileName.lastIndexOf(".") + 1,downloadfFileName.length()); //获得扩展名
+	         String fileName=download.getName()+"."+tmpName;
+	         
+//	         String fileName = downloadfFileName.substring(downloadfFileName.indexOf("_")+1);
 	         String userAgent = request.getHeader("User-Agent");
 	         byte[] bytes = userAgent.contains("MSIE") ? fileName.getBytes() : fileName.getBytes("UTF-8"); 
 	         fileName = new String(bytes, "ISO-8859-1");

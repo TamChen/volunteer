@@ -81,7 +81,7 @@ function loadInfo(result,param){
 	                "<p style='width:170px;height:22px;overflow:hidden;'>"+item.picIntro+"</p>"+
 	                "</div>"+
 	                "<div class='upload_pic_operate'>"+
-	                	"<span style='float:right;'><a href='javascript:void(0)' onclick='deleteUnPost("+item.id+")'>删除</a></span>"+
+	                	"<span style='float:right;'><a href='javascript:void(0)' onclick='deletePic("+item.id+")'>删除</a></span>"+
 	                "</div>"+
 	            "</div>	");
 		});
@@ -115,7 +115,7 @@ function loadInfo(result,param){
 	                	"<p style='width:170px;height:22px;overflow:hidden;'>"+item.picIntro+"</p>"+
 	                "</div>"+
 	                "<div class='upload_pic_operate'>"+
-	                	"<span style='float:right;'><a href='javascript:void(0)' onclick='deleteUnPost("+item.id+")'>删除</a></span>"+
+	                	"<span style='float:right;'><a href='javascript:void(0)' onclick='deletePic("+item.id+")'>删除</a></span>"+
 	                "</div>"+
 	            "</div>	");
 		});

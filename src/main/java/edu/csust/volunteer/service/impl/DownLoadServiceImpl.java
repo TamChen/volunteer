@@ -62,10 +62,11 @@ public class DownLoadServiceImpl implements IdownLoadService {
 		baseDao.save(download);
 	}
 	@Override
-	public String getDownLoadInfoById(int no) {
+	public Download getDownLoadInfoById(int no) {
 		String hql="from Download i where i.id=?";
 		Object params[]={no};
 		Download download=baseDao.load(hql, params);
-		return download.getPath();
+		return download;
 	}
+
 }

@@ -51,12 +51,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   <form id="login" action="userAction!login.action" method="post">
     <h1>义工平台登录</h1>
-    <fieldset id="inputs">
+    <fieldset id="inputs" style="font-family:微软雅黑">
 
         <input id="name" name="userno" type="text" placeholder="账号" autofocus required>   
 
         <input id="password" name="password" type="password" placeholder="密码" required>
-
+		<input name="set" style="width:20px;magrin-left:40px;" type="radio" value="1"/>普通登录
+		<input name="set" style="width:20px;magrin-left:40px;" type="radio" value="0"/>管理员登录
     </fieldset>
 
     <fieldset id="actions">

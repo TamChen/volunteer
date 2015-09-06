@@ -58,6 +58,8 @@ public class UserAction extends BaseAction<UserVO>{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		String userno=request.getParameter("userno");
+		String radio=request.getParameter("set");
+		System.out.println(radio);
 		String password=request.getParameter("password");
 		LOGGER.info(userno+"+++"+password);
 			Subject subject=SecurityUtils.getSubject();

@@ -8,7 +8,7 @@ function updateInfo(){
 		url:'../../downloadAction!update.action?id='+id+"&&name="+title,
 		success : function(result) {
 			alert("修改成功");
-			windows.location="fileManage.html";
+			window.location="fileManage.html";
 		}
 	});
 }

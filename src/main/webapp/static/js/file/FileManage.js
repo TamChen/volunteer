@@ -62,7 +62,7 @@ function loadInfo(result){
         $("#tbody").append(
         		" <tr id=tr"+item.id+">"+
                  "<td>"+eval(i+1)+"</td>"+
-                " <td style='max-width:700px;'><a style='color:#333333' href='downloadAction!download.action?fileno="+item.id+"'>"+item.name+"</a></td>"   +         
+                " <td style='max-width:700px;'><a style='color:#333333' href='../../downloadAction!download.action?fileno="+item.id+"'>"+item.name+"</a></td>"   +         
                 "<td>"+item.time+"</td>"+//时间
                  "<td>"+" <span class='glyphicon glyphicon-edit'></span>" +
                   "<span onclick=edit("+item.id+") id='edit' style='cursor:pointer'>编辑</span>"+
