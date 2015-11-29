@@ -150,7 +150,8 @@
 				</div>
 	            <div class="comment">
 	            <!-- 多说评论框 start js如何更改属性-->
-					<div id="comment" class="ds-thread" data-thread-key="1" data-title="hellword" data-url="http://localhost:8080/volunteer/activity/activity-detail.jsp"></div>
+				<!-- 	<div id="comment" class="ds-thread" data-thread-key="1" data-title="hellword" data-url="http://localhost:8080/volunteer/activity/activity-detail.jsp"></div>
+				 -->
 				<!-- 多说评论框 end -->
 	            </div>
 	           

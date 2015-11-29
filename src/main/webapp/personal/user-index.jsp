@@ -125,7 +125,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </div>
                         <div class="comment">
                 <!-- 多说评论框 start js如何更改属性-->
+                <!-- 
                     <div id="comment" class="ds-thread" data-thread-key="" data-title="hello" data-url=""></div>
+                 -->
                 <!-- 多说评论框 end -->
                 </div>
                	<input id="userno" type="hidden" value=<%=session.getAttribute("userno")%>>
