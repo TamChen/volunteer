@@ -6,13 +6,14 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.csust.volunteer.dao.AlbumDao;
 import edu.csust.volunteer.dao.PictureDao;
 import edu.csust.volunteer.model.Album;
 import edu.csust.volunteer.model.Picture;
 import edu.csust.volunteer.model.User;
-
+@Transactional
 @Repository("albumDao")
 public class AlbumDaoImpl extends BaseDaoImpl<Album>implements AlbumDao{
 

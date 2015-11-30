@@ -41,7 +41,7 @@ public class StartRunTask extends Observable implements ServletContextListener {
 				.getBean("userService");
 		// 启动服务器中所有的定时服务
 		TimerTask task = new SimpleTimerTask();
-		timer.schedule(task, 5000,5000); //
+		timer.schedule(task, 50000,50000); //
 		// 初始化数据库,主要是初始化数据库，例如默认相册
 		initDefaultAlbum(pictureService,userService);
 		String relativelyPath=System.getProperty("user.dir"); 

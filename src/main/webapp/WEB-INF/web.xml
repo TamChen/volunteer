@@ -82,7 +82,35 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
-
+	
+  <servlet>
+      <servlet-name>DruidStatView</servlet-name>
+      <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>DruidStatView</servlet-name>
+      <url-pattern>/druid/*</url-pattern>
+  </servlet-mapping>
+   <servlet>
+      <servlet-name>DruidStatView</servlet-name>
+      <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    <init-param>
+        <param-name>allow</param-name>
+        <param-value>172.26.92.1/255,127.0.0.1</param-value>
+    </init-param>
+    <init-param>
+        <param-name>deny</param-name>
+        <param-value>128.242.127.4</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+      <servlet-name>DruidStatView</servlet-name>
+      <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    <init-param>
+        <param-name>resetEnable</param-name>
+        <param-value>false</param-value>
+    </init-param>
+  </servlet>
 	<!-- 欢迎页面 -->
 	<welcome-file-list>
 		<welcome-file>login.jsp</welcome-file>

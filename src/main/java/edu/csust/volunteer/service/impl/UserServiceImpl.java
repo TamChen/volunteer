@@ -26,7 +26,8 @@ import edu.csust.volunteer.vo.UserVO;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
-	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+	
+	@Transactional()
 	@Override
 	public Serializable save(User user) {
 		return userDao.save(user);

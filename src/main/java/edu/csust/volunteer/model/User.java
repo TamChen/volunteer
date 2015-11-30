@@ -13,12 +13,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.transaction.Transactional;
 
+import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import edu.csust.volunteer.support.EnableQueryCache;
 
 @Entity
-@Transactional 
 @Table(name = "t_user")
 @EnableQueryCache
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -89,7 +89,7 @@ public class User implements Serializable {
 		this.star = star;
 	}
 
-	@Column(name = "USIGN", length = 500, nullable = true)
+	@Column(name = "USIGN", length = 500, nullable = false)
     public String getSign() {
 		return sign;
 	}
@@ -125,7 +125,7 @@ public class User implements Serializable {
 		this.userMajor = userMajor;
 	}
 
-	@Column(name = "UINTRO", length = 5000, nullable = true)
+	@Column(name = "UINTRO", length = 5000, nullable =false)
 	public String getUserIntro() {
 		return userIntro;
 	}
@@ -134,7 +134,7 @@ public class User implements Serializable {
 		this.userIntro = userIntro;
 	}
 	
-	@Column(name = "UTELE", length = 5000, nullable = true)
+	@Column(name = "UTELE", length = 5000, nullable = false)
 	public String getUserTele() {
 		return userTele;
 	}
@@ -241,7 +241,7 @@ public class User implements Serializable {
 		this.status = status;
 	}
 	
-	@Column(name = "OUTSTANDING", length = 12, nullable = true)
+	@Column(name = "OUTSTANDING", length = 12, nullable = false)
 
 	public boolean isOutstanding() {
 		return outstanding;
@@ -249,7 +249,7 @@ public class User implements Serializable {
 	public void setOutstanding(boolean outstanding) {
 		this.outstanding = outstanding;
 	}
-	@Column(name = "OUTSTANDINGPICTURE", length = 50, nullable = true)
+	@Column(name = "OUTSTANDINGPICTURE", length = 50, nullable = false)
 	public String getOutstandingPicture() {
 		return outstandingPicture;
 	}
