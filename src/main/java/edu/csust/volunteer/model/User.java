@@ -11,12 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.transaction.Transactional;
 
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import edu.csust.volunteer.support.EnableQueryCache;
 
 @Entity
+@Transactional 
 @Table(name = "t_user")
 @EnableQueryCache
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)

@@ -5,16 +5,20 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import edu.csust.volunteer.dao.BaseDao;
 import edu.csust.volunteer.model.Activity;
 import edu.csust.volunteer.model.Info;
+@Transactional 
 @Repository("baseDao")
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -43,7 +47,13 @@ ts.commit();*/
 	
 	@Override
 	public Serializable save(T t) {
-		return getSession().save(t);
+//		return getSession2().save(t);
+		Session session = getSession();
+		Transaction tx = session.beginTransaction();
+		session.save(t);
+		tx.commit();
+		session.close();
+		return session;
 	}
 
 	@Override

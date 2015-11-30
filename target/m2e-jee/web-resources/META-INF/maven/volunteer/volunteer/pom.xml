@@ -9,7 +9,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- spring 和hibernate结合的时候有版本冲突问题 -->
-    <spring.version>4.0.5.RELEASE</spring.version>
+    <spring.version>4.1.4.RELEASE</spring.version>
     <struts2.version>2.3.8</struts2.version>
     <shiro-version>1.2.3</shiro-version> 
     <hiberante-version>4.3.7.Final</hiberante-version>
@@ -20,10 +20,28 @@
   
   <dependencies>
   <dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-ooxml</artifactId>
+	<version>3.9</version>
+</dependency>
+  <dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi</artifactId>
+	<version>3.12</version>
+  </dependency>
+  
+  <dependency>
 	  <groupId>joda-time</groupId>
 	  <artifactId>joda-time</artifactId>
 	  <version>2.7</version>
   </dependency>
+   
+   <dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-test</artifactId>
+	<version>2.5</version>
+</dependency>
+   
     <dependency>
       <groupId>org.springframework</groupId>
     <artifactId>spring-core</artifactId>
@@ -235,7 +253,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
-      <scope>test</scope>
     </dependency>
     <dependency>  
       <groupId>com.sun</groupId>  
